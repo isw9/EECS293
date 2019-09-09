@@ -43,7 +43,7 @@ public class ProgrammingAssignment1 {
 
     }
 
-     static List<Integer> longestSmallerPrefix(List<Integer> a, List<Integer> b) {
+     private static List<Integer> longestSmallerPrefix(List<Integer> a, List<Integer> b) {
         List<Integer> result = new ArrayList<>();
 
         Iterator<Integer> aIterator = a.iterator();
