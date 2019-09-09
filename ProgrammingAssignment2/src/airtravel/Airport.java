@@ -9,6 +9,8 @@ public final class Airport implements Comparable<Airport> {
 
     private final Duration connectionTimeMin;
 
+    private final FlightGroup outFlights = FlightGroup.of(this);
+
     private Airport(String code, Duration connectionTimeMin) {
         this.code = code;
         this.connectionTimeMin = connectionTimeMin;
@@ -23,11 +25,19 @@ public final class Airport implements Comparable<Airport> {
         return new Airport(code, connectionTimeMin);
     }
 
-    private String getCode() {
+    public final boolean addFlight(Flight flight) {
+        return outFlights.add(flight);
+    }
+
+    public boolean removeFlight(Flight flight) {
+        return outFlights.remove(flight);
+    }
+
+    public String getCode() {
         return this.code;
     }
 
-    private Duration getConnectionTimeMin() {
+    public Duration getConnectionTimeMin() {
         return this.connectionTimeMin;
     }
 

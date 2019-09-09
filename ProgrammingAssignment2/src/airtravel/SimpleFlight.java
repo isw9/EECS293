@@ -19,7 +19,11 @@ public final class SimpleFlight extends AbstractFlight {
             throw new NullPointerException("Input value(s) to the SimpleFlight build method cannot be null.");
         }
 
-        return new SimpleFlight(code, leg, flightSchedule);
+
+        SimpleFlight flight = new SimpleFlight(code, leg, flightSchedule);
+        leg.getOrigin().addFlight(flight);
+
+        return flight;
     }
 
     public String getCode() {
