@@ -8,9 +8,6 @@ public final class FlightGroup {
 
     private final NavigableMap<LocalTime, Flight> flights = new TreeMap<LocalTime, Flight>();
 
-    //???
-    //private final NavigableMap<LocalTime, Flight> flights = new TreeMap<LocalTime, Flight>();
-
     private FlightGroup(Airport origin) {
         this.origin = origin;
     }
@@ -29,7 +26,7 @@ public final class FlightGroup {
             + getOrigin().getCode() + " and was actually: " + flight.origin().getCode());
         }
 
-        //if the flight group already contains the same departure time, it contains the same flight as
+        //if the flight group already contains the same departure time, it contains the same flight because
         //we have already checked if the flight is leaving from the same airport
         if (flights.containsKey(flight.departureTime())) {
             flights.put(flight.departureTime(), flight);

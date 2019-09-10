@@ -2,6 +2,8 @@ package airtravel;
 
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
 
 public final class Airport implements Comparable<Airport> {
 
@@ -41,6 +43,9 @@ public final class Airport implements Comparable<Airport> {
         return this.connectionTimeMin;
     }
 
+    public FlightGroup getOutFlights() {
+        return this.outFlights;
+    }
 
     @Override
     public boolean equals(Object otherAirport) {
@@ -70,12 +75,12 @@ public final class Airport implements Comparable<Airport> {
 
     @Override
     public int compareTo(Airport otherAirport) {
-        return this.getCode().equals(otherAirport.getCode()) ? 0 : 1;
+        return getCode().equals(otherAirport.getCode()) ? 0 : 1;
     }
 
     @Override
     public String toString() {
-        return this.getCode();
+        return getCode();
     }
 
 

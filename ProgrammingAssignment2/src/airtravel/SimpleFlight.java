@@ -31,6 +31,9 @@ public final class SimpleFlight extends AbstractFlight {
     }
 
     public Leg getLeg() {
+        if (this.leg == null) {
+            throw new NullPointerException("Leg cannot be null");
+        }
         return this.leg;
     }
 

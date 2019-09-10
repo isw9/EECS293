@@ -26,9 +26,8 @@ public final class FlightSchedule {
     }
 
     public boolean isShort(Duration durationMax) {
-        long flightTimeSeconds = this.arrivalTime.getSecond() - this.departureTime.getSecond();
-
-        return flightTimeSeconds <= durationMax.getSeconds();
+        Duration flightDuration = Duration.between(getDepartureTime(), getArrivalTime());
+        return flightDuration.getSeconds() <= durationMax.getSeconds();
     }
 
     public LocalTime getDepartureTime() {
