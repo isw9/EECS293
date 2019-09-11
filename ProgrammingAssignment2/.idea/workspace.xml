@@ -47,24 +47,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="iml" value="1" />
-          <entry key="java" value="7" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="7" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6761" />
+          <entry key="java" value="7416" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6761" />
+          <entry key="JAVA" value="7416" />
         </counts>
       </usages-collector>
     </session>
@@ -100,32 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/AirportTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="49" selection-start-line="49" selection-end-line="58" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/Flight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/AbstractFlight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -147,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="1290">
+              <caret line="86" column="80" selection-start-line="86" selection-start-column="80" selection-end-line="86" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,14 +138,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+            <state relative-caret-position="201">
+              <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
               <folding>
                 <element signature="e#752#753#0" expanded="true" />
                 <element signature="e#784#785#0" expanded="true" />
                 <element signature="e#1029#1030#0" expanded="true" />
                 <element signature="e#1071#1072#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -192,8 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="261">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1131#1132#0" expanded="true" />
@@ -205,16 +190,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="100" column="40" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="40" />
+            <state relative-caret-position="72">
+              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProgrammingAssignment2.iml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -248,9 +238,10 @@
         <option value="$PROJECT_DIR$/src/airtravel/FlightGroup.java" />
         <option value="$PROJECT_DIR$/src/airtravel/Airport.java" />
         <option value="$PROJECT_DIR$/src/airtravel/LegTest.java" />
-        <option value="$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java" />
-        <option value="$PROJECT_DIR$/src/airtravel/AirportTest.java" />
         <option value="$PROJECT_DIR$/src/airtravel/FlightGroupTest.java" />
+        <option value="$PROJECT_DIR$/src/airtravel/AirportTest.java" />
+        <option value="$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java" />
+        <option value="$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java" />
       </list>
     </option>
   </component>
@@ -295,7 +286,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568170393568" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568173103075" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -322,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FlightGroupTest.flightsAtOrAfter">
+  <component name="RunManager" selected="JUnit.airtravel in ProgrammingAssignment2">
     <configuration name="AirportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
@@ -353,7 +344,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightGroupTest.flightsAtOrAfter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FlightScheduleTest.isShortTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -362,14 +353,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.FlightGroupTest" />
-      <option name="METHOD_NAME" value="flightsAtOrAfter" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightScheduleTest" />
+      <option name="METHOD_NAME" value="isShortTrue" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightGroupTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SimpleFlightTest.validOf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -378,43 +369,41 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.FlightGroupTest" />
-      <option name="METHOD_NAME" value="remove" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FlightGroupTest.validOf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProgrammingAssignment2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="airtravel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.FlightGroupTest" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.SimpleFlightTest" />
       <option name="METHOD_NAME" value="validOf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="airtravel in ProgrammingAssignment2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProgrammingAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="airtravel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="airtravel" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.AirportTest" />
-      <item itemvalue="JUnit.FlightGroupTest.validOf" />
       <item itemvalue="JUnit.FlightGroupTest.add" />
-      <item itemvalue="JUnit.FlightGroupTest.remove" />
-      <item itemvalue="JUnit.FlightGroupTest.flightsAtOrAfter" />
+      <item itemvalue="JUnit.SimpleFlightTest.validOf" />
+      <item itemvalue="JUnit.AirportTest" />
+      <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
+      <item itemvalue="JUnit.FlightScheduleTest.isShortTrue" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FlightGroupTest.flightsAtOrAfter" />
-        <item itemvalue="JUnit.FlightGroupTest.remove" />
-        <item itemvalue="JUnit.FlightGroupTest.add" />
-        <item itemvalue="JUnit.FlightGroupTest.validOf" />
+        <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
+        <item itemvalue="JUnit.FlightScheduleTest.isShortTrue" />
         <item itemvalue="JUnit.AirportTest" />
+        <item itemvalue="JUnit.FlightGroupTest.add" />
+        <item itemvalue="JUnit.SimpleFlightTest.validOf" />
       </list>
     </recent_temporary>
   </component>
@@ -429,35 +418,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AirportTest_addFlight - 2019.09.10 at 16h 02m 55s.xml">
-      <configuration name="AirportTest.addFlight" configurationId="JUnit" />
+    <history-entry file="FlightGroupTest - 2019.09.10 at 23h 26m 49s.xml">
+      <configuration name="FlightGroupTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AirportTest_removeFlight - 2019.09.10 at 16h 03m 18s.xml">
-      <configuration name="AirportTest.removeFlight" configurationId="JUnit" />
+    <history-entry file="SimpleFlightTest_validOf - 2019.09.10 at 23h 27m 13s.xml">
+      <configuration name="SimpleFlightTest.validOf" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AirportTest_ofValid - 2019.09.10 at 16h 03m 23s.xml">
-      <configuration name="AirportTest.ofValid" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AirportTest - 2019.09.10 at 16h 03m 28s.xml">
-      <configuration name="AirportTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FlightGroupTest_validOf - 2019.09.10 at 22h 27m 44s.xml">
-      <configuration name="FlightGroupTest.validOf" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FlightGroupTest_add - 2019.09.10 at 22h 47m 40s.xml">
+    <history-entry file="FlightGroupTest_add - 2019.09.10 at 23h 29m 00s.xml">
       <configuration name="FlightGroupTest.add" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FlightGroupTest_remove - 2019.09.10 at 22h 48m 48s.xml">
-      <configuration name="FlightGroupTest.remove" configurationId="JUnit" />
+    <history-entry file="AirportTest - 2019.09.10 at 23h 34m 16s.xml">
+      <configuration name="AirportTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FlightGroupTest_flightsAtOrAfter - 2019.09.10 at 22h 50m 35s.xml">
-      <configuration name="FlightGroupTest.flightsAtOrAfter" configurationId="JUnit" />
+    <history-entry file="AirportTest - 2019.09.10 at 23h 34m 53s.xml">
+      <configuration name="AirportTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FlightGroupTest_flightsAtOrAfter - 2019.09.10 at 22h 50m 52s.xml">
-      <configuration name="FlightGroupTest.flightsAtOrAfter" configurationId="JUnit" />
+    <history-entry file="airtravel_in_ProgrammingAssignment2 - 2019.09.10 at 23h 35m 00s.xml">
+      <configuration name="airtravel in ProgrammingAssignment2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FlightGroupTest_flightsAtOrAfter - 2019.09.10 at 22h 51m 12s.xml">
-      <configuration name="FlightGroupTest.flightsAtOrAfter" configurationId="JUnit" />
+    <history-entry file="airtravel_in_ProgrammingAssignment2 - 2019.09.10 at 23h 36m 00s.xml">
+      <configuration name="airtravel in ProgrammingAssignment2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FlightScheduleTest_isShortTrue - 2019.09.10 at 23h 37m 06s.xml">
+      <configuration name="FlightScheduleTest.isShortTrue" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FlightScheduleTest_isShortTrue - 2019.09.10 at 23h 37m 10s.xml">
+      <configuration name="FlightScheduleTest.isShortTrue" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="airtravel_in_ProgrammingAssignment2 - 2019.09.10 at 23h 37m 38s.xml">
+      <configuration name="airtravel in ProgrammingAssignment2" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -474,8 +463,8 @@
       <window_info anchor="bottom" id="Messages" weight="0.32913387" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32913387" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32913387" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -505,10 +494,10 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java</url>
-          <line>101</line>
+          <url>file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java</url>
+          <line>69</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -543,9 +532,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ProgrammingAssignment2.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/LegTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -593,29 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-          <folding>
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/LegTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/Airport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="669">
@@ -640,37 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1252#1253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="100" column="40" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/AirportTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="49" selection-start-line="49" selection-end-line="58" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -686,10 +618,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/LegTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <folding>
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="1290">
+          <caret line="86" column="80" selection-start-line="86" selection-start-column="80" selection-end-line="86" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgrammingAssignment2.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/AirportTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

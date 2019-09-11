@@ -15,8 +15,8 @@ class FlightScheduleTest {
     @Test
     // tests building a valid Flight Schedule
     void ofValid() {
-        LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now();
+        LocalTime departureTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -27,8 +27,8 @@ class FlightScheduleTest {
     @Test
     // tests building a FlightSchedule when DepartureTime is null
     void ofInvalidDepartureTime() {
-        LocalTime departureTime = null;
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = null;
+        LocalTime departureTime = LocalTime.now().plusHours(1);
 
         Assertions.assertThrows(NullPointerException.class, () -> {
             FlightSchedule.of(departureTime, arrivalTime);
@@ -38,8 +38,8 @@ class FlightScheduleTest {
     @Test
     // tests building a FlightSchedule when ArrivalTime is null
     void ofInvalidArrivalTime() {
-        LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = null;
+        LocalTime arrivalTime = LocalTime.now();
+        LocalTime departureTime = null;
 
         Assertions.assertThrows(NullPointerException.class, () -> {
             FlightSchedule.of(departureTime, arrivalTime);
@@ -49,8 +49,8 @@ class FlightScheduleTest {
     @Test
     // tests building a FlightSchedule when DepartureTime is after ArrivalTime
     void ofArrivalTimeBeforeDepartureTime() {
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             FlightSchedule.of(departureTime, arrivalTime);
@@ -63,7 +63,7 @@ class FlightScheduleTest {
         Duration maxDuration = Duration.ofHours(2);
 
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -75,8 +75,8 @@ class FlightScheduleTest {
     void isShortFalse() {
         Duration maxDuration = Duration.ofHours(1);
 
-        LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(2);
+        LocalTime arrivalTime = LocalTime.now();
+        LocalTime departureTime = LocalTime.now().plusHours(2);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -86,8 +86,8 @@ class FlightScheduleTest {
     @Test
     // tests getting the departure time
     void getDepartureTime() {
-        LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now();
+        LocalTime departureTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -97,8 +97,8 @@ class FlightScheduleTest {
     @Test
     // tests getting the arrival time
     void getArrivalTime() {
-        LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now();
+        LocalTime departureTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
