@@ -17,8 +17,8 @@ class SimpleFlightTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Flight flight = SimpleFlight.of("CLE", leg, schedule);
@@ -33,8 +33,8 @@ class SimpleFlightTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Assertions.assertThrows(NullPointerException.class, () -> {
@@ -45,8 +45,8 @@ class SimpleFlightTest {
     @Test
     // tests building a SimpleFlight when the code is null
     void nullLegOf() {
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Assertions.assertThrows(NullPointerException.class, () -> {
@@ -73,8 +73,8 @@ class SimpleFlightTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Flight flight = SimpleFlight.of("CLE", leg, schedule);
@@ -89,8 +89,8 @@ class SimpleFlightTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Flight flight = SimpleFlight.of("CLE", leg, schedule);
@@ -105,8 +105,8 @@ class SimpleFlightTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         Flight flight = SimpleFlight.of("CLE", leg, schedule);

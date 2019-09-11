@@ -15,8 +15,8 @@ class FlightScheduleTest {
     @Test
     // tests building a valid Flight Schedule
     void ofValid() {
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -49,8 +49,8 @@ class FlightScheduleTest {
     @Test
     // tests building a FlightSchedule when DepartureTime is after ArrivalTime
     void ofArrivalTimeBeforeDepartureTime() {
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
-        LocalTime departureTime = LocalTime.now();
+        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now();
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             FlightSchedule.of(departureTime, arrivalTime);
@@ -75,8 +75,8 @@ class FlightScheduleTest {
     void isShortFalse() {
         Duration maxDuration = Duration.ofHours(1);
 
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(2);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(2);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -86,8 +86,8 @@ class FlightScheduleTest {
     @Test
     // tests getting the departure time
     void getDepartureTime() {
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -97,8 +97,8 @@ class FlightScheduleTest {
     @Test
     // tests getting the arrival time
     void getArrivalTime() {
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 

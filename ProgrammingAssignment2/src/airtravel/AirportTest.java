@@ -52,8 +52,8 @@ class AirportTest {
         Duration twoHours = Duration.ofHours(2);
         Airport origin = Airport.of("ORI", oneHour);
         Airport destination = Airport.of("DES", twoHours);
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
 
         Leg leg = Leg.of(origin, destination);
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
@@ -73,8 +73,8 @@ class AirportTest {
         Duration twoHours = Duration.ofHours(2);
         Airport origin = Airport.of("ORI", oneHour);
         Airport destination = Airport.of("DES", twoHours);
-        LocalTime arrivalTime = LocalTime.now();
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
 
         Leg leg = Leg.of(origin, destination);
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);

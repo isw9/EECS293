@@ -38,8 +38,8 @@ class FlightGroupTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         FlightGroup group = FlightGroup.of(origin);
@@ -58,8 +58,8 @@ class FlightGroupTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         FlightGroup group = FlightGroup.of(origin);
@@ -82,8 +82,8 @@ class FlightGroupTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime departureTime = LocalTime.now().plusHours(1);
-        LocalTime arrivalTime = LocalTime.now();
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
         FlightGroup group = FlightGroup.of(origin);
