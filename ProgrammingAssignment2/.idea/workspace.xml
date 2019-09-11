@@ -286,7 +286,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568173103075" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568173219672" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -360,7 +360,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimpleFlightTest.validOf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SimpleFlightTest.getFlightSchedule" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -370,7 +370,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
       <option name="MAIN_CLASS_NAME" value="airtravel.SimpleFlightTest" />
-      <option name="METHOD_NAME" value="validOf" />
+      <option name="METHOD_NAME" value="getFlightSchedule" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -392,18 +392,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.FlightGroupTest.add" />
-      <item itemvalue="JUnit.SimpleFlightTest.validOf" />
       <item itemvalue="JUnit.AirportTest" />
       <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
       <item itemvalue="JUnit.FlightScheduleTest.isShortTrue" />
+      <item itemvalue="JUnit.SimpleFlightTest.getFlightSchedule" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
+        <item itemvalue="JUnit.SimpleFlightTest.getFlightSchedule" />
         <item itemvalue="JUnit.FlightScheduleTest.isShortTrue" />
         <item itemvalue="JUnit.AirportTest" />
         <item itemvalue="JUnit.FlightGroupTest.add" />
-        <item itemvalue="JUnit.SimpleFlightTest.validOf" />
       </list>
     </recent_temporary>
   </component>

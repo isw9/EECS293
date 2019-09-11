@@ -1,7 +1,10 @@
 package airtravel;
 
 import java.time.LocalTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.NavigableMap;
+import java.util.Set;
+import java.util.TreeMap;
 
 public final class FlightGroup {
     private final Airport origin;

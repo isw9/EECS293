@@ -1,9 +1,6 @@
 package airtravel;
 
-
 import java.time.Duration;
-import java.util.Collections;
-import java.util.List;
 
 public final class Airport implements Comparable<Airport> {
 
@@ -82,6 +79,4 @@ public final class Airport implements Comparable<Airport> {
     public String toString() {
         return getCode();
     }
-
-
 }

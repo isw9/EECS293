@@ -19,6 +19,4 @@ public interface Flight {
     public LocalTime arrivalTime();
 
     public boolean isShort(Duration durationMax);
-
-
 }

@@ -39,10 +39,4 @@ public abstract class AbstractFlight implements Flight {
         FlightSchedule schedule = getFlightSchedule();
         return schedule.isShort(durationMax);
     }
-
-
-
-
-
-
 }
