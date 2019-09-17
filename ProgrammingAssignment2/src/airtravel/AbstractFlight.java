@@ -7,36 +7,31 @@ public abstract class AbstractFlight implements Flight {
 
     @Override
     public Airport origin() {
-        Leg leg = getLeg();
-
-        if (leg == null) {
-            throw new NullPointerException("Leg cannot be null");
-        }
-
-        return leg.getOrigin();
+        return getLeg().getOrigin();
     }
 
     @Override
     public Airport destination() {
-        Leg leg = getLeg();
-        return leg.getDestination();
+        return getLeg().getDestination();
     }
 
     @Override
     public LocalTime departureTime() {
-        FlightSchedule schedule = getFlightSchedule();
-        return schedule.getDepartureTime();
+        return getFlightSchedule().getDepartureTime();
     }
 
     @Override
     public LocalTime arrivalTime() {
-        FlightSchedule schedule = getFlightSchedule();
-        return schedule.getArrivalTime();
+        return getFlightSchedule().getArrivalTime();
     }
 
     @Override
     public boolean isShort(Duration durationMax) {
-        FlightSchedule schedule = getFlightSchedule();
-        return schedule.isShort(durationMax);
+        return getFlightSchedule().isShort(durationMax);
+    }
+
+    @Override
+    public boolean hasSeats(FareClass fareClass) {
+        return seatsAvailable(fareClass).set.size() > 0;
     }
 }

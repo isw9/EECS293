@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.EnumMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,6 +38,9 @@ class FlightGroupTest {
         Airport origin = Airport.of("CLE", Duration.ofHours(1));
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, 0);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
         LocalTime arrivalTime = LocalTime.now().plusHours(1);
         LocalTime departureTime = LocalTime.now();
@@ -44,7 +48,7 @@ class FlightGroupTest {
 
         FlightGroup group = FlightGroup.of(origin);
 
-        Flight flight = SimpleFlight.of("CLE", leg, schedule);
+        Flight flight = SimpleFlight.of("CLE", leg, schedule, seatConfiguration);
 
         group.add(flight);
 
@@ -61,10 +65,13 @@ class FlightGroupTest {
         LocalTime arrivalTime = LocalTime.now().plusHours(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, 0);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
         FlightGroup group = FlightGroup.of(origin);
 
-        Flight flight = SimpleFlight.of("CLE", leg, schedule);
+        Flight flight = SimpleFlight.of("CLE", leg, schedule, seatConfiguration);
 
         group.add(flight);
 
@@ -81,6 +88,9 @@ class FlightGroupTest {
         Airport origin = Airport.of("CLE", Duration.ofHours(1));
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, 0);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
         LocalTime arrivalTime = LocalTime.now().plusHours(1);
         LocalTime departureTime = LocalTime.now();
@@ -88,7 +98,7 @@ class FlightGroupTest {
 
         FlightGroup group = FlightGroup.of(origin);
 
-        Flight flight = SimpleFlight.of("CLE", leg, schedule);
+        Flight flight = SimpleFlight.of("CLE", leg, schedule, seatConfiguration);
 
         group.add(flight);
 

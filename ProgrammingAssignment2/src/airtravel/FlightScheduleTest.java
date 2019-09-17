@@ -73,10 +73,10 @@ class FlightScheduleTest {
     @Test
     // tests whether the length of a Flight Schedule is short (false case)
     void isShortFalse() {
-        Duration maxDuration = Duration.ofHours(1);
+        Duration maxDuration = Duration.ofMinutes(1);
 
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(2);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(2);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.EnumMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -54,10 +55,13 @@ class AirportTest {
         Airport destination = Airport.of("DES", twoHours);
         LocalTime departureTime = LocalTime.now();
         LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, 0);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
         Leg leg = Leg.of(origin, destination);
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
-        SimpleFlight simpleFlight = SimpleFlight.of("ORI", leg, schedule);
+        SimpleFlight simpleFlight = SimpleFlight.of("ORI", leg, schedule, seatConfiguration);
 
         assertEquals(1, origin.getOutFlights().flightsAtOrAfter(departureTime).size());
 
@@ -75,10 +79,13 @@ class AirportTest {
         Airport destination = Airport.of("DES", twoHours);
         LocalTime departureTime = LocalTime.now();
         LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, 0);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
         Leg leg = Leg.of(origin, destination);
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
-        SimpleFlight simpleFlight = SimpleFlight.of("ORI", leg, schedule);
+        SimpleFlight simpleFlight = SimpleFlight.of("ORI", leg, schedule, seatConfiguration);
 
         assertEquals(1, origin.getOutFlights().flightsAtOrAfter(departureTime).size());
 
