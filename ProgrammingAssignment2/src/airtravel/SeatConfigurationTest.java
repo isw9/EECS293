@@ -13,7 +13,7 @@ class SeatConfigurationTest {
     // tests building a valid SeatConfiguration using an EnumMap
     void ofValid() {
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
-        map.put(SeatClass.BUSINESS, 0);
+        map.put(SeatClass.BUSINESS, 1);
 
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
