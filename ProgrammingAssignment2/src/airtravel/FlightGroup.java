@@ -1,12 +1,15 @@
 package airtravel;
 
 import java.time.LocalTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeMap;
 
 public final class FlightGroup {
     private final Airport origin;
-
-   // private final NavigableMap<LocalTime, Flight> flights = new TreeMap<LocalTime, Flight>();
 
     private final NavigableMap<LocalTime, Set<Flight>> flights = new TreeMap<LocalTime, Set<Flight>>();
 
@@ -15,9 +18,7 @@ public final class FlightGroup {
     }
 
     public static final FlightGroup of(Airport origin) {
-        if (origin == null) {
-            throw new NullPointerException("Input to FlightGroup build method cannot be null");
-        }
+        Objects.requireNonNull(origin, "origin cannot be null in FlightGroup build");
 
         return new FlightGroup(origin);
     }

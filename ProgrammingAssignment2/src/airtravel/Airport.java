@@ -1,6 +1,7 @@
 package airtravel;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public final class Airport implements Comparable<Airport> {
 
@@ -16,10 +17,8 @@ public final class Airport implements Comparable<Airport> {
     }
 
     public static final Airport of(String code, Duration connectionTimeMin) {
-        if (code == null || connectionTimeMin == null) {
-            throw new NullPointerException("Input(s) to Airport build method cannot be null");
-        }
-
+        Objects.requireNonNull(code, "code cannot be null in FlightPolicy build");
+        Objects.requireNonNull(connectionTimeMin, "connectionTimeMin cannot be null in FlightPolicy build");
 
         return new Airport(code, connectionTimeMin);
     }

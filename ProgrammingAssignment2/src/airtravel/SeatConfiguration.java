@@ -1,7 +1,7 @@
 package airtravel;
 
-import javax.print.attribute.standard.NumberUp;
 import java.util.EnumMap;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,21 +15,16 @@ public class SeatConfiguration {
     }
 
     public static final SeatConfiguration of(EnumMap<SeatClass, Integer> seats) {
-        if (seats == null) {
-            throw new NullPointerException("Seats cannot be null");
-        }
+        Objects.requireNonNull(seats, "Seats cannot be null in SeatConfiguration build");
 
         return new SeatConfiguration(seats);
     }
 
-    //2nd build method???
-//    public static final SeatConfiguration of(EnumMap<SeatClass, Integer> seats) {
-//        if (seats == null) {
-//            throw new NullPointerException("Seats cannot be null");
-//        }
-//
-//        return new SeatConfiguration(seats);
-//    }
+    public static final SeatConfiguration of(SeatConfiguration seatConfiguration) {
+        Objects.requireNonNull(seatConfiguration, "seatConfiguration cannot be null in SeatConfiguration build");
+
+        return new SeatConfiguration(seatConfiguration.seats);
+    }
 
     public final int seats(SeatClass seatClass) {
         if (this.seats.containsKey(seatClass) && this.seats.get(seatClass) > 0) {
@@ -47,8 +42,14 @@ public class SeatConfiguration {
         return previouslyAvailableSeats;
     }
 
-    public final boolean hasSeats(SeatClass seatClass) {
-        return seats(seatClass) > 0;
+    public final boolean hasSeats() {
+        Set<SeatClass> seatClasses = seats.keySet();
+        for (SeatClass seatClass : seatClasses) {
+            if (seats(seatClass) > 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

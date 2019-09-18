@@ -1,8 +1,9 @@
 package airtravel;
 
 import java.time.Duration;
+import java.util.Objects;
 
-public class FareClass {
+public final class FareClass {
     private final int identifier;
 
     private final SeatClass seatClass;
@@ -13,16 +14,17 @@ public class FareClass {
     }
 
     public static final FareClass of(SeatClass seatClass, int identifier) {
-        if (seatClass == null) {
-            throw new NullPointerException("Input to FareClass build method cannot be null");
-        }
-
+        Objects.requireNonNull(seatClass, "seatClass cannot be null in FareClass build");
 
         return new FareClass(seatClass, identifier);
     }
 
     public int getIdentifier() {
         return this.identifier;
+    }
+
+    public SeatClass getSeatClass() {
+        return this.seatClass;
     }
 
     @Override
