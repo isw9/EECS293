@@ -49,63 +49,32 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="1" />
           <entry key="iml" value="2" />
-          <entry key="java" value="74" />
+          <entry key="java" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="74" />
+          <entry key="JAVA" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="16643" />
+          <entry key="java" value="19002" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="16643" />
+          <entry key="JAVA" value="19002" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/Airport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="20" selection-end-column="108" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/AirportTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="26" selection-start-line="26" selection-end-line="35" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/FareClassTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -121,17 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            <state relative-caret-position="156">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,11 +99,60 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/SeatConfigurationTest.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/FareClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="184">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/SeatClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1056#1057#0" expanded="true" />
+                <element signature="e#1095#1096#0" expanded="true" />
+                <element signature="e#5768#5769#0" expanded="true" />
+                <element signature="e#5817#5818#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="16" selection-start-line="16" selection-end-line="27" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="28" column="50" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,10 +163,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/SeatConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="291">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#216#225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,20 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="89" column="2" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airtravel/LegTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="265">
+              <caret line="32" selection-start-line="32" selection-end-line="34" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,6 +201,7 @@
       <find>SimpleFlight.of</find>
       <find>addF</find>
       <find>Flight</find>
+      <find>seatsAvailable</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -224,13 +223,13 @@
         <option value="$PROJECT_DIR$/src/airtravel/FareClassTest.java" />
         <option value="$PROJECT_DIR$/src/airtravel/AbstractFlight.java" />
         <option value="$PROJECT_DIR$/src/airtravel/AbstractFlightTest.java" />
-        <option value="$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java" />
         <option value="$PROJECT_DIR$/src/airtravel/Airport.java" />
         <option value="$PROJECT_DIR$/src/airtravel/FareClass.java" />
         <option value="$PROJECT_DIR$/src/airtravel/FlightGroup.java" />
-        <option value="$PROJECT_DIR$/src/airtravel/FlightPolicy.java" />
         <option value="$PROJECT_DIR$/src/airtravel/SeatConfiguration.java" />
         <option value="$PROJECT_DIR$/src/airtravel/SeatConfigurationTest.java" />
+        <option value="$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java" />
+        <option value="$PROJECT_DIR$/src/airtravel/FlightPolicy.java" />
       </list>
     </option>
   </component>
@@ -275,7 +274,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568775271002" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568818209294" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -302,8 +301,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.airtravel in ProgrammingAssignment2">
-    <configuration name="AirportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FlightPolicyTest">
+    <configuration name="FlightPolicyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -312,12 +311,12 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.AirportTest" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightPolicyTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SeatConfigurationTest.hasSeats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FlightPolicyTest.comboFlightPolicy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -326,14 +325,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.SeatConfigurationTest" />
-      <option name="METHOD_NAME" value="hasSeats" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightPolicyTest" />
+      <option name="METHOD_NAME" value="comboFlightPolicy" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SeatConfigurationTest.seats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FlightPolicyTest.spinTheWheelHighIdentifier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -342,14 +341,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.SeatConfigurationTest" />
-      <option name="METHOD_NAME" value="seats" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightPolicyTest" />
+      <option name="METHOD_NAME" value="spinTheWheelHighIdentifier" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SeatConfigurationTest.setSeats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FlightPolicyTest.spinTheWheelLowIdentifier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -358,14 +357,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="MAIN_CLASS_NAME" value="airtravel.SeatConfigurationTest" />
-      <option name="METHOD_NAME" value="setSeats" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightPolicyTest" />
+      <option name="METHOD_NAME" value="spinTheWheelLowIdentifier" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="airtravel in ProgrammingAssignment2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FlightPolicyTest.upgradeToHighest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingAssignment2" />
       <extension name="coverage">
         <pattern>
@@ -374,25 +373,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="airtravel" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="airtravel.FlightPolicyTest" />
+      <option name="METHOD_NAME" value="upgradeToHighest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AirportTest" />
-      <item itemvalue="JUnit.SeatConfigurationTest.seats" />
-      <item itemvalue="JUnit.SeatConfigurationTest.setSeats" />
-      <item itemvalue="JUnit.SeatConfigurationTest.hasSeats" />
-      <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
+      <item itemvalue="JUnit.FlightPolicyTest.upgradeToHighest" />
+      <item itemvalue="JUnit.FlightPolicyTest.spinTheWheelLowIdentifier" />
+      <item itemvalue="JUnit.FlightPolicyTest.spinTheWheelHighIdentifier" />
+      <item itemvalue="JUnit.FlightPolicyTest.comboFlightPolicy" />
+      <item itemvalue="JUnit.FlightPolicyTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.airtravel in ProgrammingAssignment2" />
-        <item itemvalue="JUnit.SeatConfigurationTest.hasSeats" />
-        <item itemvalue="JUnit.SeatConfigurationTest.setSeats" />
-        <item itemvalue="JUnit.SeatConfigurationTest.seats" />
-        <item itemvalue="JUnit.AirportTest" />
+        <item itemvalue="JUnit.FlightPolicyTest" />
+        <item itemvalue="JUnit.FlightPolicyTest.comboFlightPolicy" />
+        <item itemvalue="JUnit.FlightPolicyTest.spinTheWheelHighIdentifier" />
+        <item itemvalue="JUnit.FlightPolicyTest.spinTheWheelLowIdentifier" />
+        <item itemvalue="JUnit.FlightPolicyTest.upgradeToHighest" />
       </list>
     </recent_temporary>
   </component>
@@ -407,35 +408,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="airtravel_in_ProgrammingAssignment2 - 2019.09.16 at 22h 41m 29s.xml">
-      <configuration name="airtravel in ProgrammingAssignment2" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 43m 34s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FareClassTest - 2019.09.16 at 23h 09m 13s.xml">
-      <configuration name="FareClassTest" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 43m 48s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AirportTest - 2019.09.17 at 22h 24m 12s.xml">
-      <configuration name="AirportTest" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 45m 10s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeatConfigurationTest_of1 - 2019.09.17 at 22h 35m 55s.xml">
-      <configuration name="SeatConfigurationTest.of1" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 45m 29s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeatConfigurationTest_of1 - 2019.09.17 at 22h 37m 20s.xml">
-      <configuration name="SeatConfigurationTest.of1" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_spinTheWheelHighIdentifier - 2019.09.18 at 10h 46m 01s.xml">
+      <configuration name="FlightPolicyTest.spinTheWheelHighIdentifier" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AirportTest - 2019.09.17 at 22h 38m 34s.xml">
-      <configuration name="AirportTest" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 46m 27s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeatConfigurationTest_seats - 2019.09.17 at 22h 44m 07s.xml">
-      <configuration name="SeatConfigurationTest.seats" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 47m 49s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeatConfigurationTest_setSeats - 2019.09.17 at 22h 47m 55s.xml">
-      <configuration name="SeatConfigurationTest.setSeats" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 48m 42s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SeatConfigurationTest_hasSeats - 2019.09.17 at 22h 49m 01s.xml">
-      <configuration name="SeatConfigurationTest.hasSeats" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest_comboFlightPolicy - 2019.09.18 at 10h 49m 08s.xml">
+      <configuration name="FlightPolicyTest.comboFlightPolicy" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="airtravel_in_ProgrammingAssignment2 - 2019.09.17 at 22h 49m 08s.xml">
-      <configuration name="airtravel in ProgrammingAssignment2" configurationId="JUnit" />
+    <history-entry file="FlightPolicyTest - 2019.09.18 at 10h 50m 01s.xml">
+      <configuration name="FlightPolicyTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -450,7 +451,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32913387" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -510,33 +511,77 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>departureTime.plusHours(12)</expression-string>
+        <expression-string>seatConfig</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>flightsAtOrAfter.values()</expression-string>
+        <expression-string>copySeatConfig</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.arrivalTime.getSecond()</expression-string>
+        <expression-string>seatConfig.seats(seatClass)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.departureTime.getSecond()</expression-string>
+        <expression-string>seatsAvailable.seats(SeatClass.ECONOMY)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>flightTimeSeconds</expression-string>
+        <expression-string>seatsAvailable.seats(SeatClass.PREMIUM_ECONOMY)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>seatsAvailable.seats(SeatClass.BUSINESS)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Math.max(currentSeats - 3, 0)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>seatsAvailable</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>FlightPolicy.strict(flight)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -593,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/SeatClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/Leg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -612,26 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FareClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-256">
@@ -639,44 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/FareClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
           <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="50" column="79" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="2" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,30 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/Airport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="20" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airtravel/SeatConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -732,10 +696,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airtravel/SeatConfigurationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="224">
           <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/SimpleFlightTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="16" selection-start-line="16" selection-end-line="27" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightScheduleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="32" selection-start-line="32" selection-end-line="34" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FareClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/SeatClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightGroupTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="50" column="79" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/SeatConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#216#225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightSchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.5.2/junit-platform-commons-1.5.2.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3351">
+          <caret line="326" column="9" selection-start-line="326" selection-start-column="9" selection-end-line="326" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airtravel/FlightPolicy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#5768#5769#0" expanded="true" />
+            <element signature="e#5817#5818#0" expanded="true" />
           </folding>
         </state>
       </provider>

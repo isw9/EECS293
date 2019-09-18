@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 import java.util.function.BiFunction;
 
 public class FlightPolicy extends AbstractFlight {
@@ -36,7 +35,6 @@ public class FlightPolicy extends AbstractFlight {
     }
 
     public SeatConfiguration seatsAvailable(FareClass fareClass) {
-        flight.seatsAvailable(fareClass);
         return policy.apply(flight.seatsAvailable(fareClass), fareClass);
     }
 
@@ -69,7 +67,7 @@ public class FlightPolicy extends AbstractFlight {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
             for (SeatClass seatClass : SeatClass.values()) {
                 int currentSeats = seatConfig.seats(seatClass);
-                copySeatConfig.setSeats(seatClass, Math.max(currentSeats - 3, 0));
+                copySeatConfig.setSeats(seatClass, Math.max(currentSeats - reserve, 0));
             }
             return copySeatConfig;
         });
@@ -90,9 +88,12 @@ public class FlightPolicy extends AbstractFlight {
                     copySeatConfig.setSeats(seatClass, seatConfig.seats(seatClass));
                     isAfterPassengerSeatClass = false;
                 }
-                if (seatClass == passengerSeatClass) {
+                else if (seatClass == passengerSeatClass) {
                     copySeatConfig.setSeats(seatClass, seatConfig.seats(seatClass));
                     isAfterPassengerSeatClass = true;
+                }
+                else {
+                    copySeatConfig.setSeats(seatClass, 0);
                 }
             }
             return copySeatConfig;
@@ -113,6 +114,9 @@ public class FlightPolicy extends AbstractFlight {
                     copySeatConfig.setSeats(seatClass, seatConfig.seats(seatClass));
                     highestClassPossible = false;
                 }
+                else {
+                    copySeatConfig.setSeats(seatClass, 0);
+                }
             }
             return copySeatConfig;
         });
@@ -120,23 +124,30 @@ public class FlightPolicy extends AbstractFlight {
         return policy;
     }
 
-    // spin the wheel -> gives passenger a % chance to upgrade to highest class if there are any empty seats
+    // spin the wheel -> gives passenger a chance to upgrade to highest class based on the identifier of their FareClass
     // otherwise they stay in their original SeatClass
-    public static final Flight spinTheWheel(Flight flight, int upgradeProbability) {
-        if (upgradeProbability <= 0) {
-            return strict(flight);
-        }
-        else {
-            int probability = upgradeProbability % 100;
-
-            Random r = new Random();
-            int randomNumber = r.ints(1, (100 + 1)).findFirst().getAsInt();
-            if (randomNumber <= probability) {
-                return upgradeToHighest(flight);
+    public static final Flight spinTheWheel(Flight flight) {
+        FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
+            SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
+            boolean highestClassPossible = false;
+            if (fareClassConfig.getIdentifier() > 100) {
+                highestClassPossible = true;
             }
-        }
 
-        return strict(flight);
+            // iterate from highest SeatClass to lowest
+            for (SeatClass seatClass : SeatClass.values()) {
+                if (highestClassPossible || seatClass == fareClassConfig.getSeatClass()) {
+                    copySeatConfig.setSeats(seatClass, seatConfig.seats(seatClass));
+                    highestClassPossible = false;
+                }
+                else {
+                    copySeatConfig.setSeats(seatClass, 0);
+                }
+            }
+            return copySeatConfig;
+        });
+
+        return policy;
     }
 
 
