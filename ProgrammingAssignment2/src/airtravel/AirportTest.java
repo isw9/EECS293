@@ -67,7 +67,6 @@ class AirportTest {
 
         //we expect this to be false because the SimpleFlight of method adds the flight to the flight group
         assertFalse(origin.addFlight(simpleFlight));
-
     }
 
     @Test
@@ -114,5 +113,53 @@ class AirportTest {
         Airport airport = Airport.of(code, duration);
 
         assertEquals(60, airport.getConnectionTimeMin().toMinutes());
+    }
+
+    @Test
+    // tests getting the available flights on or after a given time when there is 1
+    void availableFlightsValid() {
+        Airport origin = Airport.of("ORI", Duration.ofHours(1));
+        LocalTime departureTime = LocalTime.now();
+        SimpleFlight flight = createSimpleFlight(origin, departureTime, 1);
+        FareClass fareClass = FareClass.of(SeatClass.BUSINESS, 100);
+
+        assertEquals(1, origin.availableFlights(departureTime, fareClass).size());
+    }
+
+    @Test
+    // tests getting the available flights on or after a given time when there is not one because
+    // there are no flighs leaving after the departure time
+    void availableFlightsInvalidDepartureTime() {
+        Airport origin = Airport.of("ORI", Duration.ofHours(1));
+        LocalTime departureTime = LocalTime.now();
+        SimpleFlight flight = createSimpleFlight(origin, departureTime, 1);
+        FareClass fareClass = FareClass.of(SeatClass.BUSINESS, 100);
+
+        assertEquals(0, origin.availableFlights(departureTime.plusMinutes(10), fareClass).size());
+    }
+
+    @Test
+    // tests getting the available flights on or after a given time when there is not one because
+    // there are no seats available for the fare class
+    void availableFlightsInvalidNoSeats() {
+        Airport origin = Airport.of("ORI", Duration.ofHours(1));
+        LocalTime departureTime = LocalTime.now();
+        SimpleFlight flight = createSimpleFlight(origin, departureTime, 0);
+        FareClass fareClass = FareClass.of(SeatClass.BUSINESS, 100);
+
+        assertEquals(0, origin.availableFlights(departureTime, fareClass).size());
+    }
+
+    private SimpleFlight createSimpleFlight(Airport origin, LocalTime departureTime, int numSeats) {
+        Duration twoHours = Duration.ofHours(2);
+        Airport destination = Airport.of("DES", twoHours);
+        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
+        map.put(SeatClass.BUSINESS, numSeats);
+        SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
+
+        Leg leg = Leg.of(origin, destination);
+        FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
+        return SimpleFlight.of("ORI", leg, schedule, seatConfiguration);
     }
 }

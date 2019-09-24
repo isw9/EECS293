@@ -1,5 +1,7 @@
 package airtravel;
 
+import java.util.Objects;
+
 public final class SimpleFlight extends AbstractFlight {
 
     private final String code;
@@ -18,10 +20,10 @@ public final class SimpleFlight extends AbstractFlight {
     }
 
     public static final SimpleFlight of(String code, Leg leg, FlightSchedule flightSchedule, SeatConfiguration seatsAvailable) {
-        if (code == null || leg == null || flightSchedule == null ||  seatsAvailable == null) {
-            throw new NullPointerException("Input value(s) to the SimpleFlight build method cannot be null.");
-        }
-
+        Objects.requireNonNull(code, "code cannot be null in SimpleFlight build");
+        Objects.requireNonNull(leg, "leg cannot be null in SimpleFlight build");
+        Objects.requireNonNull(flightSchedule, "flightSchedule cannot be null in SimpleFlight build");
+        Objects.requireNonNull(seatsAvailable, "seatsAvailable cannot be null in SimpleFlight build");
 
         SimpleFlight flight = new SimpleFlight(code, leg, flightSchedule, seatsAvailable);
         leg.getOrigin().addFlight(flight);
@@ -36,9 +38,7 @@ public final class SimpleFlight extends AbstractFlight {
 
     @Override
     public Leg getLeg() {
-        if (this.leg == null) {
-            throw new NullPointerException("Leg cannot be null");
-        }
+        Objects.requireNonNull(this.leg, "leg cannot be null when calling getLeg() in SimpleFlight");
         return this.leg;
     }
 
