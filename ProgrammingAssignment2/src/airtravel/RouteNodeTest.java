@@ -28,15 +28,15 @@ class RouteNodeTest {
     // tests the build method when Airport, RouteTime, and previus RouteNode are provided and known
     void validOfYesPrevious() {
         Airport previousAirport = Airport.of("CLE", Duration.ofMinutes(10));
-        RouteTime previousRouteTime = new RouteTime(LocalTime.now());
-        RouteNode previousRouteNode = RouteNode.of(previousAirport, previousRouteTime, null);
+        RouteTime previousArrivalTime = new RouteTime(LocalTime.now());
+        RouteNode previousRouteNode = RouteNode.of(previousAirport, previousArrivalTime, null);
 
         Airport airport = Airport.of("ORL", Duration.ofMinutes(20));
-        RouteTime routeTime = new RouteTime(LocalTime.now().plusMinutes(5));
-        RouteNode routeNode = RouteNode.of(airport, routeTime, previousRouteNode);
+        RouteTime arrivalTime = new RouteTime(LocalTime.now().plusMinutes(5));
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, previousRouteNode);
 
         assertEquals(airport, routeNode.getAirport());
-        assertEquals(routeTime, routeNode.getArrivalTime());
+        assertEquals(arrivalTime, routeNode.getArrivalTime());
         assertEquals(previousRouteNode, routeNode.getPrevious());
     }
 
@@ -71,8 +71,8 @@ class RouteNodeTest {
     // tests the 2nd build method when there is a previous RouteNode
     void validof2YesPrevious() {
         Airport previousAirport = Airport.of("CLE", Duration.ofMinutes(10));
-        RouteTime previousRouteTime = new RouteTime(LocalTime.now());
-        RouteNode previousRouteNode = RouteNode.of(previousAirport, previousRouteTime, null);
+        RouteTime previousArrivalTime = new RouteTime(LocalTime.now());
+        RouteNode previousRouteNode = RouteNode.of(previousAirport, previousArrivalTime, null);
 
         Flight flight = createSimpleFlight(1, 1, 1);
         RouteNode routeNode = RouteNode.of(flight, previousRouteNode);
@@ -102,34 +102,117 @@ class RouteNodeTest {
     }
 
     @Test
-    void getAirport() {
+    // tests the 3rd build method when no flight is provided
+    void invalidOf3() {
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            RouteNode.of(null);
+        });
     }
 
     @Test
-    void getArrivalTime() {
+    // tests a valid getAirport setup
+    void getAirportValid() {
+        Airport airport = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, null);
+
+        assertEquals(airport, routeNode.getAirport());
     }
 
     @Test
-    void getPrevious() {
+    // tests a valid getArrivalTime setup
+    void getArrivalTimeValid() {
+        Airport airport = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, null);
+
+        assertEquals(arrivalTime, routeNode.getArrivalTime());
     }
 
     @Test
-    void isArrivalTimeKnown() {
+    // tests getting previous when there is no previous
+    void getPreviousNone() {
+        Airport airport = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, null);
+
+        assertNull(routeNode.getPrevious());
     }
 
     @Test
+    // tests getting previous when there is a previous
+    void getPreviousYes() {
+        Airport previousAirport = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime previousArrivalTime = new RouteTime(LocalTime.now());
+        RouteNode previousRouteNode = RouteNode.of(previousAirport, previousArrivalTime, null);
+
+        Airport airport = Airport.of("ORL", Duration.ofMinutes(20));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now().plusMinutes(5));
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, previousRouteNode);
+
+        assertEquals(previousRouteNode, routeNode.getPrevious());
+    }
+
+    @Test
+    // tests getting the departureTime
     void departureTime() {
+        Duration connectionTime = Duration.ofMinutes(10);
+        Airport airport = Airport.of("CLE", connectionTime);
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, null);
+
+        assertEquals(arrivalTime.plus(connectionTime).getTime(), routeNode.departureTime().getTime());
     }
 
     @Test
+    // tests if the arrival time is known when it is not
+    void isArrivalTimeKnownNo() {
+        Flight flight = createSimpleFlight(1, 1, 1);
+
+        RouteNode routeNode = RouteNode.of(flight);
+
+        assertFalse(routeNode.isArrivalTimeKnown());
+    }
+
+    @Test
+    // tests if the arrival time is known when it is
+    void isArrivalTimeKnownYes() {
+        Airport airport = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+
+        RouteNode routeNode = RouteNode.of(airport, arrivalTime, null);
+
+        assertTrue(routeNode.isArrivalTimeKnown());
+    }
+
+    @Test
+    // tests getting available flights when they is an available flight
     void availableFlights() {
+//        Flight flight = createSimpleFlight(1, 1, 1);
+//
+//        RouteNode routeNode = RouteNode.of(flight, null);
+//        FareClass businessFareClass = FareClass.of(SeatClass.BUSINESS, 100);
+//
+//        assertEquals(1, routeNode.availableFlights(businessFareClass).size());
+//        for (Flight availableFlight : routeNode.availableFlights(businessFareClass)) {
+//            assertEquals(flight.getCode(), availableFlight.getCode());
+//        }
+//
+//
+//        Airport origin = Airport.of("ORI", Duration.ofHours(1));
+//        LocalTime departureTime = LocalTime.now();
+//        SimpleFlight flight = createSimpleFlight(origin, departureTime, 1);
+//        FareClass fareClass = FareClass.of(SeatClass.BUSINESS, 100);
+//
+//        assertEquals(1, origin.availableFlights(departureTime, fareClass).size());
     }
 
     @Test
     void compareTo() {
     }
 
-//    private RouteNode buildRouteNode(String airportCode, RouteNode previousNode) {
-//
-//    }
 }

@@ -54,6 +54,7 @@ public final class RouteTime implements Comparable<RouteTime> {
             return -1;
         }
         else {
+            // otherwise we want to compare the objects usring their LocalTime routeTimes
             return this.routeTime.compareTo(alternateRouteTime.routeTime);
         }
     }

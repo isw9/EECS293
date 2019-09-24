@@ -77,7 +77,7 @@ class AirportTest {
         Airport origin = Airport.of("ORI", oneHour);
         Airport destination = Airport.of("DES", twoHours);
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);

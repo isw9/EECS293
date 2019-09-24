@@ -16,7 +16,7 @@ class FlightScheduleTest {
     // tests building a valid Flight Schedule
     void ofValid() {
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
