@@ -207,7 +207,7 @@ class FlightPolicyTest {
         assertEquals(3, seatsAvailable.seats(SeatClass.ECONOMY));
     }
 
-    private static Flight createSimpleFlight(int business, int premiumEconomy, int economy) {
+    public static Flight createSimpleFlight(int business, int premiumEconomy, int economy) {
         Airport origin = Airport.of("CLE", Duration.ofMinutes(1));
         Airport destination = Airport.of("ORL", Duration.ofMinutes(2));
         Leg leg = Leg.of(origin, destination);
