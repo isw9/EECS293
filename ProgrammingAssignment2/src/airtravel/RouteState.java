@@ -9,6 +9,8 @@ public class RouteState {
 
     private final NavigableSet<RouteNode> unreached = new TreeSet<RouteNode>();
 
+    private Set<RouteNode> reached = new HashSet<RouteNode>();
+
     private RouteState(Set<Airport> airports, Airport origin, LocalTime departureTime) {
         RouteNode originNode = RouteNode.of(origin, new RouteTime(departureTime), null);
         airportNode.put(origin, originNode);
