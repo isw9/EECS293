@@ -42,6 +42,8 @@ public final class FareClass {
 
     @Override
     public int hashCode() {
-        return getIdentifier() / 11;
+        int result = 1;
+        result = 13 * result + getIdentifier();
+        return result;
     }
 }

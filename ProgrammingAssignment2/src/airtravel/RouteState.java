@@ -9,8 +9,6 @@ public class RouteState {
 
     private final NavigableSet<RouteNode> unreached = new TreeSet<RouteNode>();
 
-    private final Set<RouteNode> alreadyReached = new HashSet<RouteNode>();
-
     private RouteState(Set<Airport> airports, Airport origin, LocalTime departureTime) {
         RouteNode originNode = RouteNode.of(origin, new RouteTime(departureTime), null);
         airportNode.put(origin, originNode);
@@ -19,7 +17,7 @@ public class RouteState {
             RouteNode airportRouteNode = RouteNode.of(airport, RouteTime.UNKNOWN, null);
             airportNode.put(airport, airportRouteNode);
 
-            // not sure about this
+            // for each airport in airports, add it's RouteNode to the set of unreached RouteNodes
             unreached.add(airportRouteNode);
         }
     }
@@ -49,6 +47,7 @@ public class RouteState {
         return unreached.first();
     }
 
+    //assume the airport has an entry in RouteState based on HW instructions
     public final RouteNode airportNode(Airport airport) {
         return airportNode.get(airport);
     }

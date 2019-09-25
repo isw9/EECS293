@@ -23,6 +23,7 @@ public final class FlightGroup {
         return new FlightGroup(origin);
     }
 
+    //complexity - 3
     public final boolean add(Flight flight) {
         checkFlightOriginAirport(flight);
 
@@ -49,6 +50,7 @@ public final class FlightGroup {
         }
     }
 
+    //complexity - 3
     public final boolean remove(Flight flight) {
         checkFlightOriginAirport(flight);
 
@@ -78,7 +80,6 @@ public final class FlightGroup {
         Set<Flight> result = new HashSet<Flight>();
 
         for (Map.Entry<LocalTime, Set<Flight>> entry : flightsAtOrAfter.entrySet()) {
-            Set<Flight> set = entry.getValue();
             result.addAll(entry.getValue());
 
         }

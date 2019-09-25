@@ -42,7 +42,7 @@ class FlightGroupTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -62,7 +62,7 @@ class FlightGroupTest {
         Airport destination = Airport.of("ORL", Duration.ofHours(2));
         Leg leg = Leg.of(origin, destination);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
@@ -92,7 +92,7 @@ class FlightGroupTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 

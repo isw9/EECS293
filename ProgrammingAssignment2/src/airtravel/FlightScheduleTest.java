@@ -49,7 +49,7 @@ class FlightScheduleTest {
     @Test
     // tests building a FlightSchedule when DepartureTime is after ArrivalTime
     void ofArrivalTimeBeforeDepartureTime() {
-        LocalTime departureTime = LocalTime.now().plusHours(1);
+        LocalTime departureTime = LocalTime.now().plusMinutes(1);
         LocalTime arrivalTime = LocalTime.now();
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -87,7 +87,7 @@ class FlightScheduleTest {
     // tests getting the departure time
     void getDepartureTime() {
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -98,7 +98,7 @@ class FlightScheduleTest {
     // tests getting the arrival time
     void getArrivalTime() {
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
 
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 

@@ -21,7 +21,7 @@ class SimpleFlightTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -40,7 +40,7 @@ class SimpleFlightTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -52,7 +52,7 @@ class SimpleFlightTest {
     @Test
     // tests building a SimpleFlight when the code is null
     void nullLegOf() {
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
@@ -89,7 +89,7 @@ class SimpleFlightTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -108,7 +108,7 @@ class SimpleFlightTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 
@@ -127,7 +127,7 @@ class SimpleFlightTest {
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
 
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         LocalTime departureTime = LocalTime.now();
         FlightSchedule schedule = FlightSchedule.of(departureTime, arrivalTime);
 

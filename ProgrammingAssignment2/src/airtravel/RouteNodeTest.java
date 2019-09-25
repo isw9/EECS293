@@ -190,29 +190,30 @@ class RouteNodeTest {
     }
 
     @Test
-    // tests getting available flights when they is an available flight
-    void availableFlights() {
-//        Flight flight = createSimpleFlight(1, 1, 1);
-//
-//        RouteNode routeNode = RouteNode.of(flight, null);
-//        FareClass businessFareClass = FareClass.of(SeatClass.BUSINESS, 100);
-//
-//        assertEquals(1, routeNode.availableFlights(businessFareClass).size());
-//        for (Flight availableFlight : routeNode.availableFlights(businessFareClass)) {
-//            assertEquals(flight.getCode(), availableFlight.getCode());
-//        }
-//
-//
-//        Airport origin = Airport.of("ORI", Duration.ofHours(1));
-//        LocalTime departureTime = LocalTime.now();
-//        SimpleFlight flight = createSimpleFlight(origin, departureTime, 1);
-//        FareClass fareClass = FareClass.of(SeatClass.BUSINESS, 100);
-//
-//        assertEquals(1, origin.availableFlights(departureTime, fareClass).size());
+    // tests the overridden compare to method in the valid case of different arrival times
+    void compareToValid() {
+        Airport airport1 = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime1 = new RouteTime(LocalTime.now());
+        RouteNode routeNode1 = RouteNode.of(airport1, arrivalTime1, null);
+
+        Airport airport2 = Airport.of("ORL", Duration.ofMinutes(20));
+        RouteTime arrivalTime2 = new RouteTime(LocalTime.now().plusMinutes(5));
+        RouteNode routeNode2 = RouteNode.of(airport2, arrivalTime2, null);
+
+        assertEquals(-1, routeNode1.compareTo(routeNode2));
     }
 
     @Test
-    void compareTo() {
+    // tests the overridden compare to method in the valid case of the same arrival time
+    void compareToValidSameArrivalTime() {
+        Airport airport1 = Airport.of("CLE", Duration.ofMinutes(10));
+        RouteTime arrivalTime = new RouteTime(LocalTime.now());
+        RouteNode routeNode1 = RouteNode.of(airport1, arrivalTime, null);
+
+        Airport airport2 = Airport.of("ORL", Duration.ofMinutes(20));
+        RouteNode routeNode2 = RouteNode.of(airport2, arrivalTime, null);
+
+        assertEquals(airport1.compareTo(airport2), routeNode1.compareTo(routeNode2));
     }
 
 }

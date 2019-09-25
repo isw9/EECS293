@@ -38,6 +38,7 @@ public class FlightPolicy extends AbstractFlight {
         return policy.apply(flight.seatsAvailable(fareClass), fareClass);
     }
 
+    // passengers can only sit in their class
     public static final Flight strict(Flight flight) {
         FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
@@ -52,16 +53,12 @@ public class FlightPolicy extends AbstractFlight {
         return policy;
     }
 
+    // strict if it's a short flight, sit anywhere if it is not
     public static final Flight restrictedDuration(Flight flight, Duration durationMax) {
-        if (flight.isShort(durationMax)) {
-            return strict(flight);
-        }
-        else {
-            FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> SeatConfiguration.of(seatConfig));
-            return policy;
-        }
+        return flight.isShort(durationMax) ? strict(flight) : FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> SeatConfiguration.of(seatConfig));
     }
 
+    // passenger has access to seats in all classes (minus a number of seats in each class that are reserved)
     public static final Flight reserve(Flight flight, int reserve) {
         FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
@@ -75,6 +72,8 @@ public class FlightPolicy extends AbstractFlight {
         return policy;
     }
 
+    // passenger has access to seats in his class and the class immediately above it
+    // complexity 3
     public static final Flight limited(Flight flight) {
         FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
@@ -103,6 +102,7 @@ public class FlightPolicy extends AbstractFlight {
     }
 
     // returns the passenger's current class AND any seats if there are any in the highest class possible
+    // complexity 3
     public static final Flight upgradeToHighest(Flight flight) {
         FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
@@ -126,6 +126,7 @@ public class FlightPolicy extends AbstractFlight {
 
     // spin the wheel -> gives passenger a chance to upgrade to highest class based on the identifier of their FareClass
     // otherwise they stay in their original SeatClass
+    // complexity 4
     public static final Flight spinTheWheel(Flight flight) {
         FlightPolicy policy = FlightPolicy.of(flight, (seatConfig, fareClassConfig) -> {
             SeatConfiguration copySeatConfig = SeatConfiguration.of(seatConfig);
@@ -149,10 +150,6 @@ public class FlightPolicy extends AbstractFlight {
 
         return policy;
     }
-
-
-
-
 
     @Override
     public FlightSchedule getFlightSchedule() {

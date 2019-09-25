@@ -54,7 +54,7 @@ class AirportTest {
         Airport origin = Airport.of("ORI", oneHour);
         Airport destination = Airport.of("DES", twoHours);
         LocalTime departureTime = LocalTime.now();
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
         map.put(SeatClass.BUSINESS, 0);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);
@@ -153,7 +153,7 @@ class AirportTest {
     private SimpleFlight createSimpleFlight(Airport origin, LocalTime departureTime, int numSeats) {
         Duration twoHours = Duration.ofHours(2);
         Airport destination = Airport.of("DES", twoHours);
-        LocalTime arrivalTime = LocalTime.now().plusHours(1);
+        LocalTime arrivalTime = LocalTime.now().plusMinutes(1);
         EnumMap<SeatClass, Integer> map = new EnumMap<>(SeatClass.class);
         map.put(SeatClass.BUSINESS, numSeats);
         SeatConfiguration seatConfiguration = SeatConfiguration.of(map);

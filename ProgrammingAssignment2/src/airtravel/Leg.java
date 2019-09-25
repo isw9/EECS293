@@ -1,5 +1,7 @@
 package airtravel;
 
+import java.util.Objects;
+
 public final class Leg {
 
     private final Airport origin;
@@ -12,9 +14,8 @@ public final class Leg {
     }
 
     public static final Leg of(Airport origin, Airport destination) {
-        if (origin == null || destination == null) {
-            throw new NullPointerException("Input(s) to Leg build method cannot be null");
-        }
+        Objects.requireNonNull(origin, "origin can't be null in the Leg build method");
+        Objects.requireNonNull(destination, "destination can't be null in the Leg build method");
 
         return new Leg(origin, destination);
     }

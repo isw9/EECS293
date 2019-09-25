@@ -2,6 +2,7 @@ package airtravel;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public final class FlightSchedule {
 
@@ -15,10 +16,9 @@ public final class FlightSchedule {
     }
 
     public static final FlightSchedule of(LocalTime departureTime, LocalTime arrivalTime) {
-        if (departureTime == null || arrivalTime == null) {
-            throw new NullPointerException("Input(s) to the FlightSchedule build method cannot be null");
-        }
-        else if (arrivalTime.isBefore(departureTime)) {
+        Objects.requireNonNull(departureTime, "departureTime in FlightSchedule build can't be null");
+        Objects.requireNonNull(arrivalTime, "departureTime in FlightSchedule build can't be null");
+        if (arrivalTime.isBefore(departureTime)) {
             throw new IllegalArgumentException("Arrival time cannot come before the departure time");
         }
 

@@ -27,11 +27,9 @@ public class SeatConfiguration {
     }
 
     public final int seats(SeatClass seatClass) {
-        if (this.seats.containsKey(seatClass) && this.seats.get(seatClass) > 0) {
-            return this.seats.get(seatClass);
-        }
+        int seats = this.seats.getOrDefault(seatClass, 0);
 
-        return 0;
+        return seats < 0 ? 0 : seats;
     }
 
     public final int setSeats(SeatClass seatClass, int seats) {
