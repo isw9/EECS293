@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class Airport implements Comparable<Airport> {
 
@@ -48,15 +49,8 @@ public final class Airport implements Comparable<Airport> {
 
     public Set<Flight> availableFlights(LocalTime departureTime, FareClass fareClass) {
         Set<Flight> allFlights = getOutFlights().flightsAtOrAfter(departureTime);
-        Set<Flight> availableFlights = new HashSet<Flight>();
 
-        for (Flight flight : allFlights) {
-            if (flight.seatsAvailable(fareClass).hasSeats()) {
-                availableFlights.add(flight);
-            }
-        }
-
-        return availableFlights;
+        return allFlights.stream().filter(s -> s.seatsAvailable(fareClass).hasSeats()).collect(Collectors.toSet());
     }
 
     @Override

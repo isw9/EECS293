@@ -65,28 +65,26 @@ public final class RouteNode implements Comparable<RouteNode> {
     }
 
     public Set<Flight> availableFlights(FareClass fareClass) {
+        Objects.requireNonNull(fareClass, "fareClass can't be null in availableFlights method");
         return airport.availableFlights(departureTime().getTime(), fareClass);
     }
 
     @Override
-    //complexity - 3
+    //complexity - 2
     public int compareTo(RouteNode otherRouteNode) {
+        Objects.requireNonNull(otherRouteNode, "otherRouteNode can't be null in compareTo method");
         RouteTime originalRouteTime = this.getArrivalTime();
         RouteTime otherRouteTime = otherRouteNode.getArrivalTime();
+        boolean originalKnown = originalRouteTime.isKnown();
+        boolean otherKnown = otherRouteTime.isKnown();
+        int booleanCompare = Boolean.compare(originalKnown, otherKnown);
 
         // if both RouteTimes are known, we can call getTime() safely
-        if (originalRouteTime.isKnown() && otherRouteTime.isKnown()) {
-            LocalTime originalArrivalTime = this.getArrivalTime().getTime();
-            LocalTime otherArrivalTime = otherRouteNode.getArrivalTime().getTime();
-
-            // if the 2 arrival times are the same, break tie based on airport
-            if (originalArrivalTime.compareTo(otherArrivalTime) == 0) {
-                return compareBasedOnAirport(this, otherRouteNode);
-            } else {
-                return this.getArrivalTime().compareTo(otherRouteNode.getArrivalTime());
-            }
+        if (booleanCompare == 0) {
+            int routeCompare = originalRouteTime.compareTo(otherRouteTime);
+            return routeCompare == 0 ? compareBasedOnAirport(this, otherRouteNode) : this.getArrivalTime().compareTo(otherRouteNode.getArrivalTime());
         }
-        // one of the RouteTimes is unknown - need to make sure unknown RouteTimes are considered greater than
+        // one or more of the RouteTimes is unknown - need to make sure unknown RouteTimes are considered greater than
         // known RouteTimes
         else {
             return unknownRouteTimeCompare(this, otherRouteNode);

@@ -2,6 +2,7 @@ package airtravel;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public final class RouteTime implements Comparable<RouteTime> {
 
@@ -27,6 +28,7 @@ public final class RouteTime implements Comparable<RouteTime> {
     }
 
     public RouteTime plus(Duration duration) {
+        Objects.requireNonNull(duration, "duration cannot be null in plus method");
         if (!isKnown()) {
             return UNKNOWN;
         }
@@ -35,27 +37,22 @@ public final class RouteTime implements Comparable<RouteTime> {
         return new RouteTime(time.plusSeconds(duration.getSeconds()));
     }
 
-    //complexity = 4
+    //complexity = 2
     @Override
     public int compareTo(RouteTime alternateRouteTime) {
+        Objects.requireNonNull(alternateRouteTime, "other RouteTime object cannot be null in overridden" +
+                "compareTo method");
         boolean thisIsUnknown = !isKnown();
         boolean otherIsUnknown = !alternateRouteTime.isKnown();
+        int booleanComparison = Boolean.compare(thisIsUnknown, otherIsUnknown);
 
-        // if neither RouteTime is known, return 0
-        if (thisIsUnknown && otherIsUnknown) {
-            return 0;
+        if (booleanComparison != 0) {
+            return booleanComparison;
         }
-        // check if the only original RouteTime is unknown
-        else if (thisIsUnknown) {
-            return 1;
-        }
-        // check if the only alternate RouteTime is unknown
-        else if (otherIsUnknown){
-            return -1;
-        }
-        else {
-            // otherwise we want to compare the objects usring their LocalTime routeTimes
-            return this.routeTime.compareTo(alternateRouteTime.routeTime);
-        }
+
+        // if we reach this point, the times are either both known or both unknown
+        // if thisIsUnknown is true, the times for both RouteTimes are unknown so return 0 because we can't compare them
+        // if thisIsUnknown is false, use the LocalTime compareTo method
+        return thisIsUnknown ? 0 : this.routeTime.compareTo(alternateRouteTime.routeTime);
     }
 }

@@ -14,7 +14,6 @@ class RouteTimeTest {
     // tests isKnown when the time is known
     void isKnownTrue() {
         RouteTime routeTime = new RouteTime(LocalTime.now());
-
         assertTrue(routeTime.isKnown());
     }
 

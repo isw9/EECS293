@@ -33,8 +33,8 @@ public class RouteState {
     }
 
     public final void replaceNode(RouteNode routeNode) {
-        Airport airport = routeNode.getAirport();
-        airportNode.put(airport, routeNode);
+        Objects.requireNonNull(routeNode, "routeNode can't be null in replaceNode method");
+        airportNode.replace(routeNode.getAirport(), routeNode);
     }
 
     public final boolean allReached() {
