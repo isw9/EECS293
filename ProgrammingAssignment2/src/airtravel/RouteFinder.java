@@ -44,14 +44,15 @@ public final class RouteFinder {
     }
 
     private static RouteNode findNewDestinationNode(RouteNode currentNode, FareClass fareClass, RouteNode destinationNode) {
+        RouteNode workingDestinationNode = destinationNode;
         for (Flight flight : currentNode.availableFlights(fareClass)) {
 
             RouteTime flightRouteTime = new RouteTime(flight.arrivalTime());
             if (flightRouteTime.compareTo(destinationNode.getArrivalTime()) < 0) {
-                destinationNode = RouteNode.of(flight.origin(), flightRouteTime, destinationNode);
+                workingDestinationNode = RouteNode.of(flight.origin(), flightRouteTime, destinationNode);
             }
         }
 
-        return destinationNode;
+        return workingDestinationNode;
     }
 }
