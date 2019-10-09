@@ -124,23 +124,29 @@ The Location class has the following fields:
   `predecessor = {0, 0, 0, 1, 0, 3, 3}`
 
   Next go through each Location and calculate maxPriorityScore[i]
-  
+
   maxPriorityScore[1 (Guardians of Transportation)] = max {0, 0 + 20}
+
   maxPriorityScore[1] = 20
 
   maxPriorityScore[2 (Tower City)] = max {20, 0 + 40}
+
   maxPriorityScore[2] = 40
 
   maxPriorityScore[3 (West Side Market)] = max {40, 20 + 40}
+
   maxPriorityScore[3] = 60
 
   maxPriorityScore[4 (Cleveland Museum of Arts)] = max {60, 0 + 70}
+
   maxPriorityScore[4] = 70
 
   maxPriorityScore[5 (Severance Hall)] = max{70, 60 + 20}
+
   maxPriorityScore[5] = 80
 
   maxPriorityScore[6 (Glennan Building)] = max {80, 60 + 10}
+  
   maxPriorityScore = 80
 
   `maxPriorityScore = {0, 20, 40, 60, 70, 80, 80}`
