@@ -124,6 +124,7 @@ The Location class has the following fields:
   `predecessor = {0, 0, 0, 1, 0, 3, 3}`
 
   Next go through each Location and calculate maxPriorityScore[i]
+  
   maxPriorityScore[1 (Guardians of Transportation)] = max {0, 0 + 20}
   maxPriorityScore[1] = 20
 
