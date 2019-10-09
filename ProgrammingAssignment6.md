@@ -7,7 +7,7 @@
   taking pictures at each location
 
   Preconditions:
-  List of locations is sorted by start time.
+  List of locations is sorted by end time.
 
   List of locations must not be empty
 
