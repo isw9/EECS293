@@ -146,7 +146,7 @@ The Location class has the following fields:
   maxPriorityScore[5] = 80
 
   maxPriorityScore[6 (Glennan Building)] = max {80, 60 + 10}
-  
+
   maxPriorityScore = 80
 
   `maxPriorityScore = {0, 20, 40, 60, 70, 80, 80}`
@@ -155,29 +155,48 @@ The Location class has the following fields:
   figure out which Locations give us this priority score.
 
   Go through each Location (starting from the back):
+
   Does maxPriorityScore[6] = maxPriorityScore[5]?
+
   Yes so Glennan Building is not included
 
   Does maxPriorityScore[5] = maxPriorityScore[4]?
+
   No
+
   Does maxPriorityScore[5] = maxPriorityScore[predecessor[5]] + 5th Location's priority?
+
   Does 80 = 60 + 20?
+
   Yes so Severance Hall is included
+
+
 
   Now consider Location predecessor[5]
 
   Does maxPriorityScore[3] = maxPriorityScore[2]?
+
   No
+
   Does maxPriorityScore[3] = maxPriorityScore[predecessor[3]] + 3rd Location's priority?
+
   Does 60 = 20 + 40?
+
   Yes so West Side Market is included
+
+
+
 
   Now consider Location predecessor[3]
 
   Does maxPriorityScore[1] = maxPriorityScore[0]?
+
   No
+
   Does maxPriorityScore[1] = maxPriorityScore[predecessor[1]] + 1st Location's priority?
+
   Does 20 = 0 + 20?
+
   Yes so Guardians of Transportation is included
 
   Consider predecessor[1] next. This is 0 so the optimal schedule is built.
