@@ -78,12 +78,19 @@ The Location class has the following fields:
   maxPriorityScore[i] = max {maxPriorityScore[i-1], maxPriorityScore[predecessor[i]] + Location's priority}
 
   for each Location in input list (work backwards):
+
   if maxPriorityScore[i] == maxPriorityScore[i-1]:
+
     current Location is not included, do nothing
+
   else if maxPriorityScore[i] == maxPriorityScore[predecessor[i]] + ith Location's priority:
+
     add inputList[i] to optimalSchedule
+
     consider the predecessor[i]th location next
+
   other wise
+
     do nothing as the current Location is not included in the optimal schedule
 
 
