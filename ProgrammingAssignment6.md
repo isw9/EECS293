@@ -66,8 +66,6 @@ The Location class has the following fields:
 
   Assert that the list of inputted Locations is not empty.
 
-  Sort the list of Locations based on end time using a built in sort method.
-
   Initialize an empty list maxPriorityScore.
 
   Initialize a list predecessor such that predecessor[i] = predecessor(i) as defined above.
