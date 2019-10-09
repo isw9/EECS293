@@ -20,7 +20,7 @@
 
 2. **Name the routine**
 
-  optimalLocationSchedule
+  optimalLocation
 
 3. **Error Handling**
 
