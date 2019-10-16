@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OptimalPhotos.iml" filepath="$PROJECT_DIR$/OptimalPhotos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/optimalPhotos.iml" filepath="$PROJECT_DIR$/optimalPhotos.iml" />
     </modules>
   </component>
 </project>

@@ -1,11 +1,16 @@
-import java.time.LocalTime;
+package pictures;
+
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+import static org.junit.Assert.*;
 
-    public static void main(String[] args) {
-	// write your code here
+public class SchedulerTest {
+
+    @Test
+    public void optimalLocations() {
         List<Location> locations = new ArrayList<Location>();
         Location one = Location.of("Guardians of Transportation", 20, 480, 660);
         Location two = Location.of("Tower City", 40, 540, 780);
@@ -15,13 +20,24 @@ public class Main {
         Location six = Location.of("Glennan", 10, 960, 1140);
 
 
-
         locations.add(one);
         locations.add(two);
         locations.add(three);
         locations.add(four);
         locations.add(five);
         locations.add(six);
+        List<Location> optimalLocations = Scheduler.optimalLocations(locations);
+
+        assertEquals(3, optimalLocations.size());
+        assertTrue(optimalLocations.contains(four));
+        assertTrue(optimalLocations.contains(three));
+        assertTrue(optimalLocations.contains(one));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidOptimalScheduleEmptyList() {
+        List<Location> locations = new ArrayList<Location>();
+
         Scheduler.optimalLocations(locations);
     }
 }

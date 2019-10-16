@@ -1,3 +1,5 @@
+package pictures;
+
 import java.util.Objects;
 
 public class Location {
@@ -18,10 +20,10 @@ public class Location {
     }
 
     public static Location of(String name, int priority, int startTime, int endTime) {
-        Objects.requireNonNull(name, "name can't be null in Location");
-        Objects.requireNonNull(priority, "priority can't be null in Location");
-        Objects.requireNonNull(startTime, "startTime can't be null in Location");
-        Objects.requireNonNull(endTime, "endTime can't be null in Location");
+        Objects.requireNonNull(name, "name can't be null in pictures.Location");
+        Objects.requireNonNull(priority, "priority can't be null in pictures.Location");
+        Objects.requireNonNull(startTime, "startTime can't be null in pictures.Location");
+        Objects.requireNonNull(endTime, "endTime can't be null in pictures.Location");
 
         return new Location(name, priority, startTime, endTime);
     }
