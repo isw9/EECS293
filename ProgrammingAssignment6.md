@@ -20,7 +20,7 @@
 
 2. **Name the routine**
 
-  optimalLocationSchedule
+  optimalLocations
 
 3. **Error Handling**
 
@@ -46,7 +46,7 @@ The Location class has the following fields:
     place - where the pictures take place
     Location's default sort will be based on end time
 
-  The Schedule class contains the optimalLocationSchedule method.
+  The Schedule class contains the optimalLocations method.
 
   The predecessor(i, List of Locations) method is defined in the Schedule class. It's a private helper that calculates the index of the highest predecessor of i, where i is an index of one of the Locations in the list.
 
@@ -65,8 +65,6 @@ The Location class has the following fields:
   Location(i - 1)'s priority.
 
   Assert that the list of inputted Locations is not empty.
-
-  Sort the list of Locations based on end time using a built in sort method.
 
   Initialize an empty list maxPriorityScore.
 
