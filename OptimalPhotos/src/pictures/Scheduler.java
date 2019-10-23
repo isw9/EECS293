@@ -1,4 +1,3 @@
-package pictures;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,7 @@ public class Scheduler {
 
     public static List<Location> optimalLocations(List<Location> locations) {
         //Assert that the list of inputted Locations is not empty.
-        if (locations.size() == 0) {
+        if (locations.isEmpty()) {
             throw new IllegalArgumentException("Input List of locations cannot be empty");
         }
 
@@ -31,13 +30,22 @@ public class Scheduler {
         return optimalSchedule;
     }
 
+    private static int[] seedPredecessors(List<Location> locations) {
+        int[] predecessors = new int[locations.size() + 1];
+
+        for (int i = 0; i < predecessors.length; i++) {
+            predecessors[i] = predecessor(i, locations);
+        }
+
+        return predecessors;
+    }
+
     private static int predecessor(int currentLocationIndex, List<Location> locations) {
         if (currentLocationIndex == 0 || currentLocationIndex == 1) {
             return 0;
         }
 
         Location currentLocation = locations.get(currentLocationIndex - 1);
-
         for (int i = currentLocationIndex - 2; i >= 0; i--) {
             if (validPredecessor(locations.get(i), currentLocation)) {
                 return i + 1;
@@ -48,22 +56,9 @@ public class Scheduler {
     }
 
     private static boolean validPredecessor(Location potentialPredecessor, Location location) {
-        if (potentialPredecessor.getEndTime() < location.getStartTime()) {
-            return true;
-        }
-
-        return false;
+        return potentialPredecessor.getEndTime() < location.getStartTime();
     }
 
-    private static int[] seedPredecessors(List<Location> locations) {
-        int[] predecessors = new int[locations.size() + 1];
-
-        for (int i = 0; i < predecessors.length; i++) {
-            predecessors[i] = predecessor(i, locations);
-        }
-
-        return predecessors;
-    }
 
     private static int[] seedMaxPriorityScore(List<Location> locations, int[] predecessors) {
         int[] maxPriorityScore = new int[locations.size() + 1];
@@ -100,4 +95,35 @@ public class Scheduler {
 
         return optimalSchedule;
     }
+
+    /**
+     * Inner class that will be used to test the private methods
+     */
+    public class TestHook {
+        public int[] seedPredecessors(List<Location> locations) {
+            return Scheduler.this.seedPredecessors(locations);
+        }
+
+        public int predecessor(int currentLocationIndex, List<Location> locations) {
+            return Scheduler.this.predecessor(currentLocationIndex, locations);
+        }
+
+        public boolean validPredecessor(Location potentialPredecessor, Location location) {
+            return Scheduler.this.validPredecessor(potentialPredecessor, location);
+        }
+
+        public int[] seedMaxPriorityScore(List<Location> locations, int[] predecessors) {
+            return Scheduler.this.seedMaxPriorityScore(locations, predecessors);
+        }
+
+        public List<Location> calculateOptimalSchedule(List<Location> locations, int[] maxPriorityScore, int[] predecessors) {
+            return Scheduler.this.calculateOptimalSchedule(locations, maxPriorityScore, predecessors);
+        }
+
+    }
+
+    /**
+     * A simple constructor for the sole purpose of running a simple example
+     */
+    Scheduler() { }
 }

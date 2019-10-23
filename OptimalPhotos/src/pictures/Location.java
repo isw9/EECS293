@@ -1,4 +1,4 @@
-package pictures;
+
 
 import java.util.Objects;
 
@@ -21,9 +21,21 @@ public class Location {
 
     public static Location of(String name, int priority, int startTime, int endTime) {
         Objects.requireNonNull(name, "name can't be null in pictures.Location");
-        Objects.requireNonNull(priority, "priority can't be null in pictures.Location");
-        Objects.requireNonNull(startTime, "startTime can't be null in pictures.Location");
-        Objects.requireNonNull(endTime, "endTime can't be null in pictures.Location");
+        if (priority < 0) {
+            throw new IllegalArgumentException("Priority can't be less than 0");
+        }
+
+        if (startTime <= 0) {
+            throw new IllegalArgumentException("startTime must be greater than 0");
+        }
+
+        if (endTime <= 0) {
+            throw new IllegalArgumentException("endTime must be greater than 0");
+        }
+
+        if (startTime >= endTime) {
+            throw new IllegalArgumentException("startTime must come before endTime");
+        }
 
         return new Location(name, priority, startTime, endTime);
     }
