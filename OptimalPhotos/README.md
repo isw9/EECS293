@@ -1,6 +1,6 @@
-#Location class:
+# Location class:
 
-##of Method:
+## of Method:
 
 Location is null throws IllegalArgumentException (structured basis, bad data, boundary)
 
@@ -21,9 +21,9 @@ Start time equal to end time throws IllegalArgumentException (structured basis, 
 Valid parameters, good data (structured basis, good data)
 
 
-#Scheduler class:
+# Scheduler class:
 
-##optimalLocations Method:
+## optimalLocations Method:
 
 Valid parameters, example from class (structured basis, good data)
 
@@ -31,13 +31,13 @@ Only one location (structured basis, good data)
 
 Empty list of locations throws IllegalArgumentException (structured basis, bad data)
 
-##seedPredecessors Method:
+## seedPredecessors Method:
 
 Empty list of locations (structured basis, bad data)
 
 Nominal case (structured basis, good data)
 
-#predecessor Method:
+# predecessor Method:
 
 Index is 0 (structured basis)
 
@@ -49,7 +49,7 @@ first tested Location is invalid (boundary)
 
 None of the tested Locations are valid (structured basis)
 
-#validPredecessor Method:
+# validPredecessor Method:
 
 true case (structured basis)
 
@@ -57,7 +57,7 @@ false case where times are equal (branch coverage)
 
 nominal false case (branch coverage)
 
-#seedMaxPriorityScore Method:
+# seedMaxPriorityScore Method:
 
 Empty list of locations (structured basis, bad data)
 
@@ -67,7 +67,7 @@ Empty list of locations (structured basis, bad data)
 
 2 Locations where 1st isn't included and 2nd is (branch coverage)
 
-#calculateOptimalSchedule Method:
+# calculateOptimalSchedule Method:
 
 Last Location is not included (structured basis)
 
