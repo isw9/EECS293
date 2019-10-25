@@ -88,9 +88,7 @@ public class Scheduler {
                 i = predecessors[i+1];
             }
             //other wise do nothing as the current pictures.Location is not included in the optimal schedule
-            else {
-                //do nothing
-            }
+            //do nothing
         }
 
         return optimalSchedule;
