@@ -1,4 +1,4 @@
-#optimalLocations
+# optimalLocations
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
@@ -12,7 +12,7 @@
 | locations is empty | B1 | IllegalArgumentException is thrown |
 
 
-#seedPredecessors
+# seedPredecessors
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
@@ -25,7 +25,7 @@
 | locations is empty | b1 | array of size 1 with value 0 is returned |
 | locations is not empty | CC | predecessors array is seeded correctly |
 
-#predecessor
+# predecessor
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
@@ -44,7 +44,7 @@
 | currentLocationIndex = 0 | B1 | 0 is returned |
 | currentLocationIndex = 1 | B2 | 0 is returned |
 
-#validPredecessor
+# validPredecessor
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
@@ -58,7 +58,7 @@
 | potentialPredecessor = location | b1 | false is returned |
 | potentialPredecessor > location | b2 | false is returned |
 
-#seedMaxPriorityScore
+# seedMaxPriorityScore
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
@@ -71,7 +71,7 @@
 | locations is empty | b1 | array of size 1 with value 0 is returned |
 | locations is not empty | CC | maxPriorityScore array is seeded correctly |
 
-#calculateOptimalSchedule
+# calculateOptimalSchedule
 
 | Symbol | Goal | Notes | Condition |
 | ----------- | ----------- | ----------- | ----------- |
