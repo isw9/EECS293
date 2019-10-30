@@ -1,0 +1,464 @@
+diff -w original9/src/channels/ChannelDriver.java ProgrammingAssignment9/src/channels/ChannelDriver.java
+1,2d0
+< package channels;
+<
+12c10
+< 	static void callStatusOf(InputStream stream, int sourceAddr, int destAddr) {
+---
+>     static void callStatusOf(InputStream stream, int destAddr, int sourceAddr) {
+17d14
+<
+diff -w original9/src/channels/ChannelDriverTest.java ProgrammingAssignment9/src/channels/ChannelDriverTest.java
+1,2d0
+< package channels;
+<
+5a4,8
+> import java.lang.reflect.Constructor;
+> import java.lang.reflect.InvocationTargetException;
+> import java.lang.reflect.Modifier;
+> import java.nio.charset.StandardCharsets;
+> import java.util.Scanner;
+9a13,239
+>     // code coverage
+>     @Test
+>     public void mainNominalCase() {
+>         String testInstructions = "123\n" +
+>                 "45\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5";
+>
+>         ByteArrayInputStream testIn;
+>         testIn = new ByteArrayInputStream(testInstructions.getBytes());
+>         System.setIn(testIn);
+>         ChannelDriver.main(new String[0]);
+>     }
+>
+>     // code coverage
+>     @Test
+>     public void testConstructor() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+>         Constructor<ChannelDriver> constructor = ChannelDriver.class.getDeclaredConstructor();
+>         constructor.setAccessible(true);
+>         constructor.newInstance();
+>     }
+>
+>     //code coverage
+>     @Test
+>     public void callStatusOfNominalCase() {
+>
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5";
+>
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("true", result);
+>     }
+>
+>     // branch coverage
+>     @Test
+>     public void callStatusReturnEarlyTrue() {
+>
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5";
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("true", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void falseNoDestinationDetermined() {
+>
+>         String testInstructions = "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "GARBLED";
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("false - destination address does not match", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void trueLongToInstructions() {
+>
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("true", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void truePiecedTogether() {
+>
+>         String testInstructions = "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+> //
+> //        assertEquals("true", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void tabsCallingSequence() {
+>         String testInstructions = "TO 1\n" +
+>                 "REP 2\tREP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\tREP 5\n";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("true", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void trueGarbled() {
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS 4\n" +
+>                 "REP 5\n" +
+>                 "TO 1 \n" +
+>                 "GARBLED";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+>
+> //        assertEquals("true", result);
+>     }
+>
+>     //branch coverage
+>     @Test
+>     public void falseNeitherAddress() {
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "Why wouldn't you increase the transmission power, so that I can hear what you are saying?\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS UNREADABLE\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "TO 1";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>         ChannelDriver.callStatusOf(stream, 123, 45);
+> //
+> //        assertEquals("false - source address does not match", result);
+>     }
+diff -w original9/src/channels/Command.java ProgrammingAssignment9/src/channels/Command.java
+1,2d0
+< package channels;
+<
+6a5,6
+>     public static final Command EMPTY = new Command("empty", "0");
+>
+14c14
+< 		return other instanceof Command && ((Command)other).type == type && ((Command)other).argument.equals(argument);
+---
+>         return other instanceof Command && ((Command)other).type.equals(type) && ((Command)other).argument.equals(argument);
+Only in ProgrammingAssignment9/src/channels/: CommandTest.java
+diff -w original9/src/channels/FileIOBarricade.java ProgrammingAssignment9/src/channels/FileIOBarricade.java
+1,2d0
+< package channels;
+<
+4a3
+>
+23c22,23
+< 		} catch (Exception e) {
+---
+>         }
+>         catch (Exception e) {
+33a34
+>
+diff -w original9/src/channels/FileIOBarricadeTest.java ProgrammingAssignment9/src/channels/FileIOBarricadeTest.java
+1,2d0
+< package channels;
+<
+4a3
+> import java.io.FileInputStream;
+8a8
+> import java.nio.charset.StandardCharsets;
+12a13,75
+>     @Test
+>     public void worksNominalCase() {
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "Why wouldn't you increase the transmission power, so that I can hear what you are saying?\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS UNREADABLE\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "TO 1";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>
+>         FileIOBarricade fileIOBarricade = new FileIOBarricade(stream);
+>
+>         assertFalse(fileIOBarricade.nextLine().isEmpty());
+>     }
+>
+>     @Test
+>     public void ioExceptionInputStream() {
+>         String testInstructions = "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "Why wouldn't you increase the transmission power, so that I can hear what you are saying?\n" +
+>                 "TO 1\n" +
+>                 "REP 2\n" +
+>                 "REP 3\n" +
+>                 "THISIS UNREADABLE\n" +
+>                 "REP 5\n" +
+>                 "TO 1\n" +
+>                 "TO 1";
+>
+>
+>
+>         InputStream stream = null;
+>
+>         FileIOBarricade fileIOBarricade = new FileIOBarricade(stream);
+>
+>         String nextLine = fileIOBarricade.nextLine();
+>
+>         assertEquals(nextLine, "");
+>     }
+>
+>     @Test
+>     public void isFinishedNominal() {
+>         String testInstructions = "TO 1\n";
+>
+>         InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+>
+>         FileIOBarricade fileIOBarricade = new FileIOBarricade(stream);
+>
+>         assertFalse(fileIOBarricade.isFinished());
+>         String nextLine = fileIOBarricade.nextLine();
+>
+>         assertTrue(fileIOBarricade.isFinished());
+>     }
+diff -w original9/src/channels/InputBarricade.java ProgrammingAssignment9/src/channels/InputBarricade.java
+1,2c1
+< package channels;
+<
+---
+> import java.util.Arrays;
+11c10
+< 		getCommandsFrom(input).parallelStream().forEach(command -> state.applyCommand(command));
+---
+>         getCommandsFrom(input).parallelStream().forEach(state::applyCommand);
+15c14
+< 		while (!isConnected()) {
+---
+>         while (!isConnected() && !barricade.isFinished()) {
+31a31
+>     //complexity 4
+37,38c37,49
+< 			if (!line.isEmpty()) {
+< 				String[] lineParts = line.split(" ", 2);
+---
+>             String[] splitTabs = line.split("\t");
+>             Collections.reverse(Arrays.asList(splitTabs));
+>             for (String actualLine : splitTabs) {
+>                 if (!actualLine.isEmpty()) {
+>                     Command commandToAdd = commandFromLine(actualLine.split(" ", 2));
+>
+>                     if (!commandToAdd.equals(Command.EMPTY)) {
+>                         commands.add(commandToAdd);
+>                     }
+>                 }
+>             }
+>         }
+>
+39a51,55
+>         return Collections.unmodifiableList(commands);
+>     }
+>
+>     private static Command commandFromLine(String[] lineParts) {
+>         if (lineParts.length == 2) {
+43c59,67
+< 				commands.add(new Command(type, argument));
+---
+>             String[] argumentParts = argument.split(" ");
+>             if (argumentParts.length == 1) {
+>                 try {
+>                     Integer.parseInt(argument);
+>                 }
+>                 catch (NumberFormatException e){
+>                    return Command.EMPTY;
+>                 }
+>                 return new Command(type, argument);
+47c71
+< 		return Collections.unmodifiableList(commands);
+---
+>         return Command.EMPTY;
+diff -w original9/src/channels/InputBarricadeTest.java ProgrammingAssignment9/src/channels/InputBarricadeTest.java
+1,2d0
+< package channels;
+<
+diff -w original9/src/channels/LogState.java ProgrammingAssignment9/src/channels/LogState.java
+1,2d0
+< package channels;
+<
+20a19,20
+>
+>
+21a22,30
+>             REPCase(command);
+>         }
+>         else {
+>             nonREPCase(command);
+>         }
+>
+>     }
+>
+>     private void REPCase(Command command) {
+28,29c37,39
+< 		} else {
+< 			lastSeenType++;
+---
+>     }
+>
+>     private void nonREPCase(Command command) {
+32c42,45
+< 				destAddrCandidate = command.argument; break;
+---
+>             destAddrCandidate = command.argument;
+>             lastSeenType = 1;
+>             break;
+>
+34,35c47,49
+< 				sourceAddrCandidate = command.argument; break;
+< 			}
+---
+>             sourceAddrCandidate = command.argument;
+>             lastSeenType = 2;
+>             break;
+diff -w original9/src/channels/LogStateTest.java ProgrammingAssignment9/src/channels/LogStateTest.java
+1,2d0
+< package channels;
+<
+15a14,31
+>
+>     @Test
+>     public void falseNonRepCase() {
+>         LogState ls = new LogState(32, 2);
+>         ls.applyCommand(new Command("TO", "3"));
+>         ls.applyCommand(new Command("REP", "2"));
+>         ls.applyCommand(new Command("Junk", "2"));
+>         assertFalse(ls.isConnected());
+>     }
+>
+>     @Test
+>     public void isConnectedTrue() {
+>         LogState ls = new LogState(32, 2);
+>         ls.applyCommand(new Command("TO", "3"));
+>         ls.applyCommand(new Command("REP", "2"));
+>         ls.applyCommand(new Command("THISIS", "2"));
+>         assertFalse(ls.isConnected());
+>     }
