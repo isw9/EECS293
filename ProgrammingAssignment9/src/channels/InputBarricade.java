@@ -38,10 +38,10 @@ final class InputBarricade {
             Collections.reverse(Arrays.asList(splitTabs));
             for (String actualLine : splitTabs) {
                 if (!actualLine.isEmpty()) {
-                    Command commandtoAdd = commandFromLine(actualLine.split(" ", 2));
+                    Command commandToAdd = commandFromLine(actualLine.split(" ", 2));
 
-                    if (!commandtoAdd.equals(Command.EMPTY)) {
-                        commands.add(commandtoAdd);
+                    if (!commandToAdd.equals(Command.EMPTY)) {
+                        commands.add(commandToAdd);
                     }
                 }
             }
@@ -59,7 +59,7 @@ final class InputBarricade {
             String[] argumentParts = argument.split(" ");
             if (argumentParts.length == 1) {
                 try {
-                    Integer intToAdd = Integer.parseInt(argument);
+                    Integer.parseInt(argument);
                 }
                 catch (NumberFormatException e){
                    return Command.EMPTY;

@@ -20,4 +20,13 @@ public class LogStateTest {
         ls.applyCommand(new Command("Junk", "2"));
         assertFalse(ls.isConnected());
     }
+
+    @Test
+    public void isConnectedTrue() {
+        LogState ls = new LogState(32, 2);
+        ls.applyCommand(new Command("TO", "3"));
+        ls.applyCommand(new Command("REP", "2"));
+        ls.applyCommand(new Command("THISIS", "2"));
+        assertFalse(ls.isConnected());
+    }
 }

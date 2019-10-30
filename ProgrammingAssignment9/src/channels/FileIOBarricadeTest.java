@@ -59,4 +59,18 @@ public class FileIOBarricadeTest {
 
         assertEquals(nextLine, "");
     }
+
+    @Test
+    public void isFinishedNominal() {
+        String testInstructions = "TO 1\n";
+
+        InputStream stream = new ByteArrayInputStream(testInstructions.getBytes(StandardCharsets.UTF_8));
+
+        FileIOBarricade fileIOBarricade = new FileIOBarricade(stream);
+
+        assertFalse(fileIOBarricade.isFinished());
+        String nextLine = fileIOBarricade.nextLine();
+
+        assertTrue(fileIOBarricade.isFinished());
+    }
 }

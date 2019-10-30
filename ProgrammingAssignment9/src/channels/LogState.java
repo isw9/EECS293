@@ -39,7 +39,6 @@ final class LogState {
     private void nonREPCase(Command command) {
         switch (command.type) {
         case "TO":
-            System.out.println("ahhhhhhhhhhhhhhh");
             destAddrCandidate = command.argument;
             lastSeenType = 1;
             break;
