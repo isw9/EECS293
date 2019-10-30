@@ -1,5 +1,6 @@
 
-
+import java.lang.Math;
+import java.util.Random;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,8 +10,7 @@ import static org.junit.Assert.*;
 
 public class SchedulerTest {
 
-    //structured basis
-    //good data with multiple locations
+    //code coverage
     @Test
     public void validOptimalLocations() {
         List<Location> locations = new ArrayList<Location>();
@@ -36,7 +36,14 @@ public class SchedulerTest {
         assertTrue(optimalLocations.contains(locationOne));
     }
 
-    //structured basis
+    // branch coverage
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidOptimalScheduleEmptyList() {
+        List<Location> locations = new ArrayList<Location>();
+
+        Scheduler.optimalLocations(locations);
+    }
+
     // good data with one location
     @Test
     public void validOptimalLocationsOneLocation() {
@@ -50,32 +57,40 @@ public class SchedulerTest {
         assertTrue(optimalLocations.contains(locationOne));
     }
 
-    //structured basis
-    //bad data (empty list of locations)
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidOptimalScheduleEmptyList() {
-        List<Location> locations = new ArrayList<Location>();
-
-        Scheduler.optimalLocations(locations);
-    }
-
-    //structured basis -> for loop is executed only once
-    //bad data (empty list of locations)
     @Test
-    public void seedPredecessorsEmptyLocations() {
-        Scheduler scheduler = new Scheduler();
-        Scheduler.TestHook testHook = scheduler.new TestHook();
+    public void stressTestOptimalLocations() {
+      List<Location> locations = new ArrayList<Location>();
+      Random random = new Random();
 
-        List<Location> locations = new ArrayList<Location>();
+      int numberLocations = random.nextInt(10000);
 
-        int[] predecessors = testHook.seedPredecessors(locations);
+      for (int i = 0; i < numberLocations; i++) {
+        StringBuilder sb = new StringBuilder();
+        Random randomLocation = new Random();
 
-        assertEquals(1, predecessors.length);
-        assertEquals(0, predecessors[0]);
+        int digit = randomLocation.nextInt(9);
+        sb.append(digit);
+        digit = randomLocation.nextInt(9);
+        sb.append(digit);
+        digit = randomLocation.nextInt(9);
+        sb.append(digit);
+        digit = randomLocation.nextInt(9);
+        sb.append(digit);
+        digit = randomLocation.nextInt(9);
+        sb.append(digit);
+
+        int randomStartTime = randomLocation.nextInt(10000);
+
+        Location location = Location.of(sb.toString(), randomLocation.nextInt(1000), randomStartTime ,i + 10000);
+        locations.add(location);
+      }
+
+      List<Location> optimalLocations = Scheduler.optimalLocations(locations);
+
+      assertTrue(optimalLocations.size() >= 1);
     }
 
-    //structured basis -> for loop is executed
-    // good data (nominal case)
+    // code coverage
     @Test
     public void seedPredecessorsNominal() {
         Scheduler scheduler = new Scheduler();
@@ -104,52 +119,21 @@ public class SchedulerTest {
         }
     }
 
-    //structured basis -> index is zero
+    // branch coverage
     @Test
-    public void predecessorZeroIndex() {
+    public void seedPredecessorsEmptyLocations() {
         Scheduler scheduler = new Scheduler();
         Scheduler.TestHook testHook = scheduler.new TestHook();
 
         List<Location> locations = new ArrayList<Location>();
 
-        int predecessorIndex = testHook.predecessor(0, locations);
+        int[] predecessors = testHook.seedPredecessors(locations);
 
-        assertEquals(0, predecessorIndex);
+        assertEquals(1, predecessors.length);
+        assertEquals(0, predecessors[0]);
     }
 
-    //structured basis -> index is one
-    @Test
-    public void predecessorOneIndex() {
-        Scheduler scheduler = new Scheduler();
-        Scheduler.TestHook testHook = scheduler.new TestHook();
-
-        List<Location> locations = new ArrayList<Location>();
-
-        int predecessorIndex = testHook.predecessor(1, locations);
-
-        assertEquals(0, predecessorIndex);
-    }
-
-    //structured basis -> for loop first evaluation has a valid predecessor
-    //boundary
-    @Test
-    public void predecessorFirstLocationIsValid() {
-        Scheduler scheduler = new Scheduler();
-        Scheduler.TestHook testHook = scheduler.new TestHook();
-
-        List<Location> locations = new ArrayList<Location>();
-        Location locationOne = Location.of("one", 10, 100, 200);
-        Location locationTwo = Location.of("two", 20, 210, 400);
-        locations.add(locationOne);
-        locations.add(locationTwo);
-
-        int predecessorIndex = testHook.predecessor(2, locations);
-
-        assertEquals(1, predecessorIndex);
-    }
-
-    //structured basis -> for loop first evaluation does not have a valid predecessor
-    //boundary
+    // code coverage, boundary, branch coverage
     @Test
     public void predecessorFirstLocationIsNotValid() {
         Scheduler scheduler = new Scheduler();
@@ -168,7 +152,50 @@ public class SchedulerTest {
         assertEquals(1, predecessorIndex);
     }
 
-    //structured basis -> for loop is evaluated completely and no predecessor is found
+    // boundary
+    @Test
+    public void predecessorZeroIndex() {
+        Scheduler scheduler = new Scheduler();
+        Scheduler.TestHook testHook = scheduler.new TestHook();
+
+        List<Location> locations = new ArrayList<Location>();
+
+        int predecessorIndex = testHook.predecessor(0, locations);
+
+        assertEquals(0, predecessorIndex);
+    }
+
+    // boundary
+    @Test
+    public void predecessorOneIndex() {
+        Scheduler scheduler = new Scheduler();
+        Scheduler.TestHook testHook = scheduler.new TestHook();
+
+        List<Location> locations = new ArrayList<Location>();
+
+        int predecessorIndex = testHook.predecessor(1, locations);
+
+        assertEquals(0, predecessorIndex);
+    }
+
+    // good data
+    @Test
+    public void predecessorFirstLocationIsValid() {
+        Scheduler scheduler = new Scheduler();
+        Scheduler.TestHook testHook = scheduler.new TestHook();
+
+        List<Location> locations = new ArrayList<Location>();
+        Location locationOne = Location.of("one", 10, 100, 200);
+        Location locationTwo = Location.of("two", 20, 210, 400);
+        locations.add(locationOne);
+        locations.add(locationTwo);
+
+        int predecessorIndex = testHook.predecessor(2, locations);
+
+        assertEquals(1, predecessorIndex);
+    }
+
+    // branch coverage
     @Test
     public void predecessorNoneValid() {
         Scheduler scheduler = new Scheduler();
@@ -187,8 +214,7 @@ public class SchedulerTest {
         assertEquals(0, predecessorIndex);
     }
 
-    //structured basis -> true case
-    // boundary
+    // code coverage
     @Test
     public void isValidPredecessorYes() {
         Scheduler scheduler = new Scheduler();
@@ -205,7 +231,6 @@ public class SchedulerTest {
         assertTrue(isValid);
     }
 
-    //structured basis -> start time and end time are exactly the same
     // boundary
     @Test
     public void isValidPredecessorEquslTimes() {
@@ -223,7 +248,6 @@ public class SchedulerTest {
         assertFalse(isValid);
     }
 
-    //structured basis -> false case
     // boundary
     @Test
     public void isValidPredecessorNo() {
@@ -241,24 +265,7 @@ public class SchedulerTest {
         assertFalse(isValid);
     }
 
-    //structured basis
-    // bad data, empty list of Locations
-    @Test
-    public void seedMaxPriorityScoreEmptyListLocations() {
-        Scheduler scheduler = new Scheduler();
-        Scheduler.TestHook testHook = scheduler.new TestHook();
-
-        List<Location> locations = new ArrayList<Location>();
-        int[] predecessors = {0};
-
-        int[] maxPriorityScores = testHook.seedMaxPriorityScore(locations, predecessors);
-
-        assertEquals(1, maxPriorityScores.length);
-        assertEquals(0, maxPriorityScores[0]);
-    }
-
-    //structured basis -> 2 Locations where both are included
-    // good data nominal case where both locations are included
+    // code coverage
     @Test
     public void seedMaxPriorityScoreMultipleLocations() {
         Scheduler scheduler = new Scheduler();
@@ -280,8 +287,23 @@ public class SchedulerTest {
         assertEquals(30, maxPriorityScores[2]);
     }
 
-    //structured basis -> 2 Locations where 1st location is included
-    // good data nominal case where 1st location is included
+    // branch coverage
+    @Test
+    public void seedMaxPriorityScoreEmptyListLocations() {
+        Scheduler scheduler = new Scheduler();
+        Scheduler.TestHook testHook = scheduler.new TestHook();
+
+        List<Location> locations = new ArrayList<Location>();
+        int[] predecessors = {0};
+
+        int[] maxPriorityScores = testHook.seedMaxPriorityScore(locations, predecessors);
+
+        assertEquals(1, maxPriorityScores.length);
+        assertEquals(0, maxPriorityScores[0]);
+    }
+
+
+    // good data
     @Test
     public void seedMaxPriorityScoreMultipleLocationsFirstIncluded() {
         Scheduler scheduler = new Scheduler();
@@ -303,8 +325,7 @@ public class SchedulerTest {
         assertEquals(40, maxPriorityScores[2]);
     }
 
-    //structured basis -> 2 Locations where 2nd location is included
-    // good data nominal case where 2nd location is included
+    // good data
     @Test
     public void seedMaxPriorityScoreMultipleLocationsSecondIncluded() {
         Scheduler scheduler = new Scheduler();
@@ -326,7 +347,7 @@ public class SchedulerTest {
         assertEquals(20, maxPriorityScores[2]);
     }
 
-    //structured basis -> Last Location is not included (first if statement is true)
+    // code coverage, boundary, branch coverage
     @Test
     public void calculateOptimalScheduleLastNotIncluded() {
         Scheduler scheduler = new Scheduler();
@@ -350,7 +371,24 @@ public class SchedulerTest {
         assertFalse(optimalLocations.contains(locationThree));
     }
 
-    //structured basis -> Last Location is included (first if statement is false, second is true)
+    // branch coverage
+    @Test
+    public void calculateOptimalScheduleEmptyLocations() {
+        Scheduler scheduler = new Scheduler();
+        Scheduler.TestHook testHook = scheduler.new TestHook();
+
+        List<Location> locations = new ArrayList<Location>();
+
+        int[] predecessors = testHook.seedPredecessors(locations);
+
+        int[] maxPriorityScores = testHook.seedMaxPriorityScore(locations, predecessors);
+
+        List<Location> optimalLocations = testHook.calculateOptimalSchedule(locations, maxPriorityScores, predecessors);
+
+        assertEquals(0, optimalLocations.size());
+    }
+
+    //good data
     @Test
     public void calculateOptimalScheduleLastIsIncluded() {
         Scheduler scheduler = new Scheduler();
@@ -374,7 +412,7 @@ public class SchedulerTest {
         assertTrue(optimalLocations.contains(locationThree));
     }
 
-    //structured basis -> Last Location is not included (first if statement is false, second is false)
+    // good data
     @Test
     public void calculateOptimalScheduleLastIsIncludedIfStatementsFalse() {
         Scheduler scheduler = new Scheduler();
@@ -398,24 +436,7 @@ public class SchedulerTest {
         assertFalse(optimalLocations.contains(locationThree));
     }
 
-    // bad data (empty list of Locations)
-    @Test
-    public void calculateOptimalScheduleEmptyLocations() {
-        Scheduler scheduler = new Scheduler();
-        Scheduler.TestHook testHook = scheduler.new TestHook();
-
-        List<Location> locations = new ArrayList<Location>();
-
-        int[] predecessors = testHook.seedPredecessors(locations);
-
-        int[] maxPriorityScores = testHook.seedMaxPriorityScore(locations, predecessors);
-
-        List<Location> optimalLocations = testHook.calculateOptimalSchedule(locations, maxPriorityScores, predecessors);
-
-        assertEquals(0, optimalLocations.size());
-    }
-
-    // good data (single Location)
+    // good data
     @Test
     public void calculateOptimalScheduleSingleLocation() {
         Scheduler scheduler = new Scheduler();
