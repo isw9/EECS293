@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InputBarricade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">alarms</a> &gt; <a href="index.source.html" class="el_package">alarms</a> &gt; <span class="el_source">InputBarricade.java</span></div><h1>InputBarricade.java</h1><pre class="source lang-java linenums">package alarms;
+
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
+public class InputBarricade {
+    public List&lt;String&gt; checkInput(FileBarricade fileBarricade) {
+<span class="fc" id="L11">        List&lt;String&gt; lines = fileBarricade.readFile();</span>
+
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (lines.size() &lt; 2) {</span>
+<span class="fc" id="L14">            return new ArrayList&lt;String&gt;();</span>
+        }
+
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (!gridSizeValid(lines.get(0))) {</span>
+<span class="fc" id="L18">            return new ArrayList&lt;String&gt;();</span>
+        }
+
+<span class="fc" id="L21">        List&lt;Integer&gt; gridSizes = gridSizes(lines.get(0));</span>
+<span class="fc" id="L22">        int front = gridSizes.get(2) * gridSizes.get(0);</span>
+<span class="fc" id="L23">        int side = gridSizes.get(2) * gridSizes.get(1);</span>
+<span class="fc" id="L24">        int top = gridSizes.get(1) * gridSizes.get(0);</span>
+
+<span class="fc" id="L26">        List&lt;Integer&gt; expectedCameraFeedSizes = new ArrayList&lt;Integer&gt;(Arrays.asList(front, side, top));</span>
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (String cameraFeed : lines.subList(1, lines.size())) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            if (!cameraFeedsValid(cameraFeed, expectedCameraFeedSizes)) {</span>
+<span class="fc" id="L30">                return new ArrayList&lt;String&gt;();</span>
+            }
+<span class="fc" id="L32">        }</span>
+
+<span class="fc" id="L34">        return lines;</span>
+    }
+
+    public List&lt;Integer&gt; gridSizes(String gridSizeLine) {
+<span class="fc" id="L38">        List&lt;Integer&gt; results = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc" id="L39">        String[] gridSizes = gridSizeLine.split(&quot; &quot;);</span>
+
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (String gridSize : gridSizes) {</span>
+<span class="fc" id="L42">            results.add(Integer.parseInt(gridSize));</span>
+        }
+
+<span class="fc" id="L45">        return results;</span>
+    }
+
+    private boolean gridSizeValid(String gridSize) {
+<span class="fc" id="L49">        String[] gridSizes = gridSize.split(&quot; &quot;);</span>
+
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (gridSizes.length != 3) {</span>
+<span class="fc" id="L52">            return false;</span>
+        }
+
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (String gridNumber : gridSizes) {</span>
+            try {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">                if (Integer.parseInt(gridNumber) &lt;= 0) {</span>
+<span class="fc" id="L58">                    return false;</span>
+                }
+            }
+<span class="fc" id="L61">            catch (NumberFormatException e) {</span>
+<span class="fc" id="L62">                return false;</span>
+<span class="fc" id="L63">            }</span>
+        }
+
+<span class="fc" id="L66">        return true;</span>
+    }
+
+    private boolean cameraFeedsValid(String camerasFeed, List&lt;Integer&gt; cameraExpectedValues) {
+<span class="fc" id="L70">        String[] feeds = camerasFeed.split(&quot; &quot;);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (feeds.length != 3) {</span>
+<span class="fc" id="L72">            return false;</span>
+        }
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int i = 0; i &lt; feeds.length; i++) {</span>
+<span class="fc bfc" id="L76" title="All 4 branches covered.">            if (feeds[i].length() != cameraExpectedValues.get(i) || !validDataValues(feeds[i])) {</span>
+<span class="fc" id="L77">                return false;</span>
+            }
+        }
+
+<span class="fc" id="L81">        return true;</span>
+    }
+
+    private boolean validDataValues(String cameraFeed) {
+<span class="fc" id="L85">        String validValuesCameraFeed = validDataValuesCameraFeed(cameraFeed);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for (char c : validValuesCameraFeed.toCharArray()) {</span>
+<span class="fc" id="L87">            int numericValue = Character.getNumericValue(c);</span>
+<span class="fc bfc" id="L88" title="All 4 branches covered.">            if (numericValue &lt; 0 || numericValue &gt;= 2) {</span>
+<span class="fc" id="L89">                return false;</span>
+            }
+        }
+
+<span class="fc" id="L93">        return true;</span>
+    }
+
+    private String validDataValuesCameraFeed(String cameraFeed) {
+<span class="fc" id="L97">        StringBuilder sb = new StringBuilder();</span>
+
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (char c : cameraFeed.toCharArray()) {</span>
+<span class="fc" id="L100">            int numericValue = Character.getNumericValue(c);</span>
+<span class="fc bfc" id="L101" title="All 4 branches covered.">            if (2 &lt;= numericValue &amp;&amp; numericValue &lt;= 9) {</span>
+<span class="fc" id="L102">                sb.append(1);</span>
+            }
+            else {
+<span class="fc" id="L105">                sb.append(c);</span>
+            }
+        }
+
+<span class="fc" id="L109">        return sb.toString();</span>
+    }
+
+    /**
+     * Inner class that will be used to test the private methods
+     */
+    public class TestHook {
+
+        public boolean gridSizeValid(String gridSize) {
+            return InputBarricade.this.gridSizeValid(gridSize);
+        }
+
+        public boolean cameraFeedsValid(String camerasFeed, List&lt;Integer&gt; cameraExpectedValues) {
+            return InputBarricade.this.cameraFeedsValid(camerasFeed, cameraExpectedValues);
+        }
+
+        public boolean validDataValues(String cameraFeed) {
+            return InputBarricade.this.validDataValues(cameraFeed);
+        }
+
+        public String validDataValuesCameraFeed(String cameraFeed) {
+            return InputBarricade.this.validDataValuesCameraFeed(cameraFeed);
+        }
+    }
+
+    /**
+     * A simple constructor for the sole purpose of running a simple example
+     */
+<span class="fc" id="L137">    InputBarricade() { }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
