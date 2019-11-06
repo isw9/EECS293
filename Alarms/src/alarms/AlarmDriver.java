@@ -118,8 +118,6 @@ public class AlarmDriver {
     }
 
     private static boolean framesEqual(int[][] currentFrame, int[][] otherFrame) {
-//        printFrame(currentFrame);
-//        printFrame(otherFrame);
         for (int i = 0; i < currentFrame.length; i++) {
             for (int j = 0; j < currentFrame[i].length; j++) {
                 if (currentFrame[i][j] != otherFrame[i][j]) {
@@ -218,11 +216,6 @@ public class AlarmDriver {
         public boolean possibleShift(String currentCameraFeed, String previousCameraFeed, int rows, int columns) {
             return AlarmDriver.possibleShift(currentCameraFeed, previousCameraFeed, rows, columns);
         }
-
-        public boolean knownIssue(String currentFrame, String previousFrame, List<Integer> rowSizeData, List<Integer> columnSizeData) {
-            return AlarmDriver.knownIssue(currentFrame, previousFrame, rowSizeData, columnSizeData);
-        }
-
     }
 
     /**
