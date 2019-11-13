@@ -132,7 +132,7 @@ In my approach to testing, I will follow the guidelines discussed earlier in the
 full code coverage and branch coverage as well as boundary and stress tests. I have also sketched
 a small example of a Graph containing multiple Vertices and Edges. See the attached pdf of drawn out examples for different test cases.
 
-#Similarities and Differences
+# Similarities and Differences
 
 Although this project is an extension of Programming Assignment 5, I decided to refactor the architecture
 because of the lack of generality the original program provided. The original project only focused on
@@ -140,6 +140,9 @@ Airplane routes, so I decided to write this program at a higher level of abstrac
 to give the user more flexibility in how they wanted to use the program.
 
 an Airport is analogous to a Vertex
+
 a Flight is analogous to an Edge
+
 a FlightSchedule is analogous to a Graph as it contains both Vertices and Edges
+
 a RouteFinder is analogous to a RouteFinder
