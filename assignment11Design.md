@@ -6,6 +6,7 @@ different types (such as network routers, bus stops, etc) so they will be repres
 a Vertex class.
 
 # Vertex class
+public access
 
 This class captures the abstraction of a location. This can be anything from a network router
 to a bus stop to a building.
@@ -21,6 +22,7 @@ equals(Object vertex)
   -> returns true if and only if the names of the vertices are the same
 
 # Edge class
+public access
 
 This class captures the abstraction of a connection between two different Vertices.
 Vertices have the potential to be connected by an Edge. An Edge contains a source
@@ -46,6 +48,7 @@ equals(Object edge)
   -> returns true if and only if the two vertices are equal and the cost is the same
 
 # Graph class
+public access
 
 The Graph class will contain a list of Vertices and a list of Edges. This class captures
 the abstraction level of the Edges and Vertices as a whole. It relates to Vertex and Edge
@@ -73,8 +76,15 @@ public int edgeWeight(Vertex source, vertex destination)
 public boolean contains(Vertex vertex)
   -> returns whether the Graph contains the vertex or not
 
+public List<Vertex> getVertices()
+  -> returns all Vertices in the Graph
+
+public List<Edge> getEdges()
+  -> returns all Edges in the Graph
+
 
 # RouteFinder class
+public access
 
 The RouteFinder class will basically be used as a driver to implement Dijkstra’s algorithm.
 It has the highest level of abstraction and is used to easily calculate the shortest path.
@@ -93,9 +103,11 @@ public List<Vertex> minimumCostPath(Vertex sourceVertex, Vertex destinationVerte
 
 public int costOfPath(List<Vertex>)
   -> returns the total cost of taking this path
+  -> returns -1 if the path is invalid
 
 
 #InvalidPathException class
+public class
 
 A class used to represent a custom exception
 
