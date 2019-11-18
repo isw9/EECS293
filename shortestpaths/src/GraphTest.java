@@ -221,7 +221,7 @@ public class GraphTest {
         assertTrue( -1.0 == edgeWeight);
     }
 
-    @Test
+    @Test(expected = InvalidPathException.class)
     public void validatePathInputSourceEqualsDestination() throws InvalidPathException{
         Vertex A = Vertex.of("A");
         Vertex B = Vertex.of("B");
