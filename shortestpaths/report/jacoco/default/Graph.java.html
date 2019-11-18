@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Graph.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shortestpaths</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Graph.java</span></div><h1>Graph.java</h1><pre class="source lang-java linenums">import java.util.*;
+
+public class Graph {
+    private double[][] adjacencyMatrix;
+
+<span class="fc" id="L6">    private static Hashtable&lt;String, Integer&gt; vertexNameMapping = new Hashtable&lt;String, Integer&gt;();</span>
+
+    private List&lt;Vertex&gt; vertices;
+
+    private static List&lt;Edge&gt; edges;
+
+
+<span class="fc" id="L13">    public Graph(List&lt;Vertex&gt; vertices, List&lt;Edge&gt; edges) {</span>
+<span class="fc" id="L14">        this.vertices = vertices;</span>
+<span class="fc" id="L15">        this.edges = edges;</span>
+
+<span class="fc" id="L17">        populateVertexNameMapping(vertices);</span>
+<span class="fc" id="L18">        this.adjacencyMatrix = adjacencyMatrix(vertices, edges);</span>
+<span class="fc" id="L19">    }</span>
+
+    public static Graph of(List&lt;Vertex&gt; vertices, List&lt;Edge&gt; edges) {
+<span class="fc" id="L22">        Objects.requireNonNull(vertices, &quot;list of vertices supplied to Graph can't be null&quot;);</span>
+<span class="fc" id="L23">        Objects.requireNonNull(edges, &quot;list of edges supplied to Graph can't be null&quot;);</span>
+
+<span class="fc" id="L25">        return new Graph(vertices, edges);</span>
+    }
+
+
+    public static boolean contains(List&lt;Vertex&gt; vertices) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (Vertex vertex : vertices) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if (!vertexNameMapping.containsKey(vertex.getName())) {</span>
+<span class="fc" id="L32">                return false;</span>
+            }
+<span class="fc" id="L34">        }</span>
+
+<span class="fc" id="L36">        return true;</span>
+    }
+
+    public void addEdge(Edge edge) {
+<span class="fc" id="L40">        List&lt;Vertex&gt; vertices = new ArrayList&lt;Vertex&gt;(Arrays.asList(edge.getSource(), edge.getDestination()));</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (contains(vertices)) {</span>
+
+<span class="fc" id="L43">            removeIfExistingConnection(edge.getSource(), edge.getDestination());</span>
+<span class="fc" id="L44">            edges.add(edge);</span>
+
+
+<span class="fc" id="L47">            double cost = edge.getCost();</span>
+
+<span class="fc" id="L49">            String source = edge.getSource().getName();</span>
+<span class="fc" id="L50">            int sourceIndex = vertexNameMapping.get(source);</span>
+<span class="fc" id="L51">            String destination = edge.getDestination().getName();</span>
+<span class="fc" id="L52">            int destinationIndex = vertexNameMapping.get(destination);</span>
+
+<span class="fc" id="L54">            adjacencyMatrix[sourceIndex][destinationIndex] = cost;</span>
+        }
+<span class="fc" id="L56">    }</span>
+
+    public double edgeWeight(Vertex sourceVertex, Vertex destinationVertex) {
+<span class="fc" id="L59">        int sourceIndex = vertexNameMapping.getOrDefault(sourceVertex.getName(), -1);</span>
+<span class="fc" id="L60">        int destinationIndex = vertexNameMapping.getOrDefault(destinationVertex.getName(), -1);</span>
+
+<span class="fc bfc" id="L62" title="All 4 branches covered.">        if (sourceIndex == -1 || destinationIndex == -1) {</span>
+<span class="fc" id="L63">            return -1.0;</span>
+        }
+
+<span class="fc" id="L66">        return adjacencyMatrix[sourceIndex][destinationIndex];</span>
+    }
+
+    public List&lt;Vertex&gt; minimumCostPath(Vertex source, Vertex destination) throws InvalidPathException {
+<span class="fc" id="L70">        Hashtable&lt;Vertex, Double&gt; distanceTable = new Hashtable&lt;&gt;();</span>
+<span class="fc" id="L71">        Hashtable&lt;Vertex, Vertex&gt; previousTable = new Hashtable&lt;&gt;();</span>
+<span class="fc" id="L72">        HashSet&lt;Vertex&gt; unvisitedVertices = new HashSet&lt;Vertex&gt;();</span>
+
+
+<span class="fc" id="L75">        validatePathInput(source, destination);</span>
+<span class="fc" id="L76">        distanceTable = initializeDistanceTable();</span>
+<span class="fc" id="L77">        unvisitedVertices = initializeUnvisitedVertices();</span>
+
+
+<span class="fc" id="L80">        distanceTable.put(source, 0.0);</span>
+
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        while (!unvisitedVertices.isEmpty()) {</span>
+
+<span class="fc" id="L84">            Vertex minDistanceVertex = minDistanceFromTable(distanceTable, unvisitedVertices);</span>
+
+<span class="fc" id="L86">            unvisitedVertices.remove(minDistanceVertex);</span>
+
+<span class="fc" id="L88">            List&lt;Vertex&gt; validNeighbors = validNeighbors(minDistanceVertex, unvisitedVertices);</span>
+
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            for (Vertex neighbor : validNeighbors) {</span>
+<span class="fc" id="L91">                double edgeWeight = edgeWeight(minDistanceVertex, neighbor);</span>
+
+<span class="fc" id="L93">                double alternateRouteCost = distanceTable.get(minDistanceVertex) + edgeWeight;</span>
+
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                if (alternateRouteCost &lt; distanceTable.get(neighbor)) {</span>
+<span class="fc" id="L96">                    distanceTable.put(neighbor, alternateRouteCost);</span>
+<span class="fc" id="L97">                    previousTable.put(neighbor, minDistanceVertex);</span>
+                }
+<span class="fc" id="L99">            }</span>
+<span class="fc" id="L100">        }</span>
+
+<span class="fc" id="L102">        return shortestPath(source, destination, previousTable);</span>
+    }
+
+    private Hashtable&lt;Vertex, Double&gt; initializeDistanceTable() {
+<span class="fc" id="L106">        Hashtable&lt;Vertex, Double&gt; distanceTable = new Hashtable&lt;Vertex, Double&gt;();</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        for (Vertex vertex : getVertices()) {</span>
+<span class="fc" id="L108">            distanceTable.put(vertex, Double.POSITIVE_INFINITY);</span>
+<span class="fc" id="L109">        }</span>
+
+<span class="fc" id="L111">        return distanceTable;</span>
+    }
+
+    private HashSet&lt;Vertex&gt; initializeUnvisitedVertices() {
+<span class="fc" id="L115">        HashSet&lt;Vertex&gt; unvisitedVertices = new HashSet&lt;Vertex&gt;();</span>
+
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        for (Vertex vertex : getVertices()) {</span>
+<span class="fc" id="L118">            unvisitedVertices.add(vertex);</span>
+<span class="fc" id="L119">        }</span>
+
+<span class="fc" id="L121">        return unvisitedVertices;</span>
+    }
+
+    private List&lt;Vertex&gt; shortestPath(Vertex source, Vertex destination, Hashtable&lt;Vertex, Vertex&gt; previousTable) {
+<span class="fc" id="L125">        List&lt;Vertex&gt; path = new ArrayList&lt;Vertex&gt;();</span>
+<span class="fc" id="L126">        Vertex target = destination;</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        while (target != source) {</span>
+
+<span class="fc" id="L129">            path.add(previousTable.get(target));</span>
+<span class="fc" id="L130">            target = previousTable.get(target);</span>
+        }
+
+<span class="fc" id="L133">        Collections.reverse(path);</span>
+<span class="fc" id="L134">        path.add(destination);</span>
+
+<span class="fc" id="L136">        return path;</span>
+    }
+
+    private static void validatePathInput(Vertex source, Vertex destination) throws InvalidPathException {
+<span class="fc" id="L140">        List&lt;Vertex&gt; inputVertices = new ArrayList&lt;&gt;(Arrays.asList(source, destination));</span>
+
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        if (source.equals(destination)) {</span>
+<span class="fc" id="L143">            throw new InvalidPathException(&quot;source and destination vertex can't be the same&quot;);</span>
+        }
+
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        if (!contains(inputVertices)) {</span>
+<span class="fc" id="L147">            throw new InvalidPathException(&quot;vertex &quot; + source.getName() + &quot; or &quot; + destination.getName() + &quot; is not in the graph&quot;);</span>
+        }
+<span class="fc" id="L149">    }</span>
+
+    private List&lt;Vertex&gt; validNeighbors(Vertex source, HashSet&lt;Vertex&gt; unvisitedVertices) {
+<span class="fc" id="L152">        List&lt;Vertex&gt; validNeighbors = new ArrayList&lt;Vertex&gt;();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        for (Edge edge : edges) {</span>
+<span class="fc bfc" id="L154" title="All 4 branches covered.">            if (edge.getSource().equals(source) &amp;&amp; unvisitedVertices.contains(edge.getDestination())) {</span>
+<span class="fc" id="L155">                validNeighbors.add(edge.getDestination());</span>
+            }
+<span class="fc" id="L157">        }</span>
+
+<span class="fc" id="L159">        return validNeighbors;</span>
+    }
+
+    private Vertex minDistanceFromTable(Hashtable&lt;Vertex, Double&gt; distanceTable, HashSet&lt;Vertex&gt; unvisited) {
+<span class="fc" id="L163">        double minSoFar = Double.POSITIVE_INFINITY;</span>
+<span class="fc" id="L164">        Vertex minVertexSoFar = null;</span>
+
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        for (Map.Entry&lt;Vertex, Double&gt; entry : distanceTable.entrySet()) {</span>
+<span class="fc bfc" id="L167" title="All 4 branches covered.">            if (unvisited.contains(entry.getKey()) &amp;&amp; entry.getValue() &lt; minSoFar) {</span>
+<span class="fc" id="L168">                minVertexSoFar = entry.getKey();</span>
+            }
+<span class="fc" id="L170">        }</span>
+
+<span class="fc" id="L172">        return minVertexSoFar;</span>
+    }
+
+
+    public double pathCost(List&lt;Vertex&gt; vertices) {
+<span class="fc" id="L177">        double total = 0.0;</span>
+<span class="fc bfc" id="L178" title="All 4 branches covered.">        if (vertices.size() &lt; 2 || !contains(vertices)) {</span>
+<span class="fc" id="L179">            return -1.0;</span>
+        }
+
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        for (int i = 1; i &lt; vertices.size(); i++) {</span>
+<span class="fc" id="L183">            Vertex source = vertices.get(i-1);</span>
+<span class="fc" id="L184">            Vertex destination = vertices.get(i);</span>
+
+<span class="fc" id="L186">            int sourceIndex = vertexNameMapping.get(source.getName());</span>
+<span class="fc" id="L187">            int destinationIndex = vertexNameMapping.get(destination.getName());</span>
+
+<span class="fc" id="L189">            double cost = adjacencyMatrix[sourceIndex][destinationIndex];</span>
+
+<span class="fc bfc" id="L191" title="All 2 branches covered.">            if (cost &lt; 0) {</span>
+<span class="fc" id="L192">                return -1.0;</span>
+            }
+
+<span class="fc" id="L195">            total += cost;</span>
+         }
+
+<span class="fc" id="L198">        return total;</span>
+    }
+
+    public List&lt;Vertex&gt; getVertices() {
+<span class="fc" id="L202">        return vertices;</span>
+    }
+
+    public List&lt;Edge&gt; getEdges() {
+<span class="fc" id="L206">        return edges;</span>
+    }
+
+    private void populateVertexNameMapping(List&lt;Vertex&gt; vertices) {
+<span class="fc" id="L210">        int index = 0;</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        for (Vertex vertex : vertices) {</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">            if (!vertexNameMapping.containsKey(vertex.getName())) {</span>
+<span class="fc" id="L213">                vertexNameMapping.put(vertex.getName(), index);</span>
+<span class="fc" id="L214">                index++;</span>
+            }
+<span class="fc" id="L216">        }</span>
+<span class="fc" id="L217">    }</span>
+
+    private static double[][] adjacencyMatrix(List&lt;Vertex&gt; vertices, List&lt;Edge&gt; edges) {
+<span class="fc" id="L220">        int matrixSize = vertices.size();</span>
+
+<span class="fc" id="L222">        double[][] adjacencyMatrix = new double[matrixSize][matrixSize];</span>
+<span class="fc" id="L223">        adjacencyMatrix = negativeValueAdjacencyMatrix(adjacencyMatrix);</span>
+
+
+<span class="fc bfc" id="L226" title="All 2 branches covered.">        for (Edge edge : edges) {</span>
+<span class="fc" id="L227">            List&lt;Vertex&gt; currentVertices = new ArrayList&lt;Vertex&gt;(Arrays.asList(edge.getSource(), edge.getDestination()));</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">            if (contains(currentVertices)) {</span>
+
+<span class="fc" id="L230">                Vertex source = edge.getSource();</span>
+<span class="fc" id="L231">                Vertex destination = edge.getDestination();</span>
+<span class="fc" id="L232">                int sourceIndex = vertexNameMapping.getOrDefault(source.getName(), -1);</span>
+<span class="fc" id="L233">                int destinationIndex = vertexNameMapping.getOrDefault(destination.getName(), -1);</span>
+
+<span class="fc" id="L235">                adjacencyMatrix[sourceIndex][destinationIndex] = edge.getCost();</span>
+            }
+<span class="fc" id="L237">        }</span>
+
+<span class="fc" id="L239">        return adjacencyMatrix;</span>
+    }
+
+    private static double[][] negativeValueAdjacencyMatrix(double[][] adjacencyMatrix) {
+<span class="fc bfc" id="L243" title="All 2 branches covered.">        for (int i = 0; i &lt; adjacencyMatrix.length; i++) {</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">            for (int j = 0; j &lt; adjacencyMatrix[i].length; j++) {</span>
+<span class="fc" id="L245">                adjacencyMatrix[i][j] = -1.0;</span>
+            }
+        }
+
+<span class="fc" id="L249">        return adjacencyMatrix;</span>
+    }
+
+    private static void removeIfExistingConnection(Vertex source, Vertex destination) {
+<span class="fc bfc" id="L253" title="All 2 branches covered.">        for (Edge edge : edges) {</span>
+<span class="fc bfc" id="L254" title="All 4 branches covered.">            if (edge.getSource().equals(source) &amp;&amp; edge.getDestination().equals((destination))) {</span>
+<span class="fc" id="L255">                edges.remove(edge);</span>
+            }
+<span class="fc" id="L257">        }</span>
+<span class="fc" id="L258">    }</span>
+
+    /**
+     * Inner class that will be used to test the private methods
+     */
+    public class TestHook {
+
+        public void removeIfExistingConnection(Vertex vertex1, Vertex vertex2) {
+            Graph.removeIfExistingConnection(vertex1, vertex2);
+        }
+
+        public double[][] adjacencyMatrix(List&lt;Vertex&gt; vertices, List&lt;Edge&gt; edges) {
+            return Graph.adjacencyMatrix(vertices, edges);
+        }
+
+        public void validatePathInput(Vertex source, Vertex destination) throws InvalidPathException {
+            Graph.validatePathInput(source, destination);
+        }
+    }
+
+    /**
+     * A simple constructor for the sole purpose of running a simple example
+     */
+<span class="fc" id="L281">    Graph() { }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

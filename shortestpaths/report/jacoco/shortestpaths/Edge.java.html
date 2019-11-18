@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Edge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shortestpaths</a> &gt; <a href="index.source.html" class="el_package">shortestpaths</a> &gt; <span class="el_source">Edge.java</span></div><h1>Edge.java</h1><pre class="source lang-java linenums">package shortestpaths;
+
+import java.util.Objects;
+
+public class Edge {
+    private Vertex source;
+
+    private Vertex destination;
+
+    private double cost;
+
+
+<span class="fc" id="L13">    private Edge(Vertex source, Vertex destination, double cost) {</span>
+
+<span class="fc" id="L15">        this.source = source;</span>
+<span class="fc" id="L16">        this.destination = destination;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        this.cost = cost &gt;= 0 ? cost : 0.0;</span>
+<span class="fc" id="L18">    }</span>
+
+    public static Edge of(Vertex source, Vertex destination, double cost) {
+<span class="fc" id="L21">        Objects.requireNonNull(source, &quot;source Vertex in Edge cannot be null&quot;);</span>
+<span class="fc" id="L22">        Objects.requireNonNull(destination, &quot;destination Vertex in Edge cannot be null&quot;);</span>
+
+<span class="fc" id="L24">        return new Edge(source, destination, cost);</span>
+    }
+
+    public Vertex getSource() {
+<span class="fc" id="L28">        return source;</span>
+    }
+
+    public Vertex getDestination() {
+<span class="fc" id="L32">        return destination;</span>
+    }
+
+    public double getCost() {
+<span class="fc" id="L36">        return cost;</span>
+    }
+
+    @Override
+    public boolean equals(Object otherEdge) {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (this == otherEdge) {</span>
+<span class="fc" id="L42">            return true;</span>
+        }
+<span class="fc bfc" id="L44" title="All 4 branches covered.">        if (otherEdge == null || getClass() != otherEdge.getClass()) {</span>
+<span class="fc" id="L45">            return false;</span>
+        }
+
+<span class="fc" id="L48">        Edge edge = (Edge) otherEdge;</span>
+<span class="fc" id="L49">        return equivalentFields(this, edge);</span>
+    }
+
+    private static boolean equivalentFields(Edge edge1, Edge edge2) {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        return Double.compare(edge1.getCost(), edge2.getCost()) == 0 &amp;&amp;</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">                edge1.getSource().equals(edge2.getSource()) &amp;&amp;</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                edge1.getDestination().equals(edge2.getDestination());</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L60">        int result = 17;</span>
+<span class="fc" id="L61">        result = 31 * result + getSource().hashCode();</span>
+<span class="fc" id="L62">        result = 31 * result + getDestination().hashCode();</span>
+<span class="fc" id="L63">        result = 31 * result + (int) Math.round(getCost());</span>
+<span class="fc" id="L64">        return result;</span>
+    }
+
+
+    /**
+     * Inner class that will be used to test the private methods
+     */
+    public class TestHook {
+
+        public boolean equivalentFields(Edge edge1, Edge edge2) {
+            return Edge.equivalentFields(edge1, edge2);
+        }
+    }
+
+    /**
+     * A simple constructor for the sole purpose of running a simple example
+     */
+<span class="fc" id="L81">    Edge() { }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
