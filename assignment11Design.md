@@ -13,7 +13,9 @@ to a bus stop to a building.
 
 private String name
 
-public Vertex (String name)
+private Vertex (String name)
+
+public Vertex of(String name)
 
 public String getName
 
@@ -36,8 +38,10 @@ private Vertex source
 private Vertex destination
 private double cost
 
-public constructor (Vertex source, Vertex destination, double cost)
+private Edge (Vertex source, Vertex destination, double cost)
   -> validate cost must be non negative
+
+public Edge of(Vertex source, Vertex destination, double cost)
 
 public Vertex getSource
 public Vertex getDestination
@@ -58,40 +62,24 @@ Vertex A to Vertex B could be different than the cost to travel from Vertex B to
 private int[][] adjacency matrix to represent connections
 private List<Vertex> vertices
 private List<Edge> edges
+private Hashtable<String, Integer> vertexNameMapping
 
-public Graph (List<Vertex>, List<Edges>)
+private Graph (List<Vertex>, List<Edge>)
+
+public Graph of (List<Vertex>, List<Edge>)
   -> will populate the 2d adjacency matrix
 
 public addEdge(source, destination, cost)
  -> adds an Edge with the given cost to the Graph
  -> also populates 2d adjacency matrix
-
-public addVertex(vertexToAdd)
-  -> adds a Vertex to the Graph only if a Vertex with that name is not already in the Graph
+ -> does nothing if the Graph does not contain the source and/or destination
 
 public int edgeWeight(Vertex source, vertex destination)
   -> gets the edge weight between A and B from the adjacency matrix
-  -> returns -1 if there is no connection between A and B
+  -> returns -1.0 if there is no connection between A and B
 
-public boolean contains(Vertex vertex)
-  -> returns whether the Graph contains the vertex or not
-
-public List<Vertex> getVertices()
-  -> returns all Vertices in the Graph
-
-public List<Edge> getEdges()
-  -> returns all Edges in the Graph
-
-
-# RouteFinder class
-public access
-
-The RouteFinder class will basically be used as a driver to implement Dijkstra’s algorithm.
-It has the highest level of abstraction and is used to easily calculate the shortest path.
-
-private Graph graph
-
-public RouteFinder(Graph graph)
+public boolean contains(List<Vertex> vertices)
+  -> returns whether the Graph contains the vertices or not
 
 public List<Vertex> minimumCostPath(Vertex sourceVertex, Vertex destinationVertex)
                           throws InvalidPathException
@@ -101,9 +89,16 @@ public List<Vertex> minimumCostPath(Vertex sourceVertex, Vertex destinationVerte
   -> will throw an InvalidPathException if either vertex is not in the graph or if there is
      no valid path between the two vertices
 
-public int costOfPath(List<Vertex>)
-  -> returns the total cost of taking this path
-  -> returns -1 if the path is invalid
+ public double pathCost(List<Vertex> vertices)
+   -> returns the total cost of taking this path
+   -> returns -1.0 if the path is invalid
+
+public List<Vertex> getVertices()
+  -> returns all Vertices in the Graph
+
+public List<Edge> getEdges()
+  -> returns all Edges in the Graph
+
 
 
 #InvalidPathException class
@@ -112,7 +107,6 @@ public class
 A class used to represent a custom exception
 
 public constructor InvalidPathException(String errorMessage)
-
 
 
 
@@ -144,5 +138,3 @@ an Airport is analogous to a Vertex
 a Flight is analogous to an Edge
 
 a FlightSchedule is analogous to a Graph as it contains both Vertices and Edges
-
-a RouteFinder is analogous to a RouteFinder
